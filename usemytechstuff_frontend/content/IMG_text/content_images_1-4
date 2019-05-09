@@ -17,3 +17,23 @@ category: usb
 picture: USB_mouse_4.jpg
 cost: $30
 description: Nn easy way to expand your wired network.
+
+category: networking
+picture: external_hard_drive.jpg
+cost: $70
+description: An easy way to expand your wired network.
+
+category: output device
+picture: Wireless_Headphones.jpg
+cost: $60
+description: Wireless headphones deliver a premium listening experience with pure adaptive noise canceling
+
+category: input device
+picture: Wireless_keyboard.jpg
+cost: $70
+description: Get absolute precision with this wireless mechanical keyboard.
+
+category: networking
+picture: wifi_router.jpg
+cost: $90
+description: Smart WiFi 5 Router with external antennas delivers extremely fast WiFi.
