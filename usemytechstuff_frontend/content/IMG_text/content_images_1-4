@@ -1,39 +1,23 @@
+name: Acer SB220Q 21.5" Widescreen IPS display
 category: display
 picture: Acer_Monitor_1.jpg
 cost: $70
-description: The Acer SB220Q 21.5" Widescreen IPS display allows High-Definition entertainment and gaming in the comfort of your home.
+description: The Acer SB220Q 21.5" Widescreen IPS display combines stylish ultra-thin functionality with amazing 1920 x 1080 resolution, allowing you to enjoy High-Definition entertainment and gaming in the comfort of your home. AMD Radeon FreeSync and rapid 4ms response time highlight the advanced technology.
 
+name: Sabrent 4-Port USB 3.0 Hub
 category: usb
 picture: USB_HUB_2.jpg
 cost: $20
-description: Add up to 4 devices with the Sabrent 4-Port USB 3.0 Hub.
+description: Add up to 4 devices with the Sabrent 4-Port USB 3.0 Hub. The thin, lightweight design makes the Sabrent 4-port USB 3.0 hub a great travel companion to expand your laptop’s USB 3.0 port into four. Fully backwards compatible with USB 2.0/1.1 products. Furthermore, each port has a power switch, allowing for individual port control.
 
+name: P-Link 5 Port Gigabit Ethernet Network Switch
 category: networking
 picture: 5_port_hub.jpg
 cost: $20
-description: Add up to 4 devices with the Sabrent 4-Port USB 3.0 Hub.
+description: All 5 ports support Auto-MDI/MDIX, eliminating the need to worry about what type of cable to use. Featuring full duplex mode, the device can process data at a rate of up to 2000Mbps, making it an ideal choice for expanding your high performance wired network. Moreover, with innovative energy-efficient technology, the TL-SG105 can save energy up to 65%.
 
+name: ShhhMouse Silent Wireless USB Mouse
 category: usb
 picture: USB_mouse_4.jpg
 cost: $30
-description: Nn easy way to expand your wired network.
 
-category: networking
-picture: external_hard_drive.jpg
-cost: $70
-description: An easy way to expand your wired network.
-
-category: output device
-picture: Wireless_Headphones.jpg
-cost: $60
-description: Wireless headphones deliver a premium listening experience with pure adaptive noise canceling
-
-category: input device
-picture: Wireless_keyboard.jpg
-cost: $70
-description: Get absolute precision with this wireless mechanical keyboard.
-
-category: networking
-picture: wifi_router.jpg
-cost: $90
-description: Smart WiFi 5 Router with external antennas delivers extremely fast WiFi.
