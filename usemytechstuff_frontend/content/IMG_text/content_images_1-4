@@ -1,0 +1,39 @@
+name: display
+picture: Acer_Monitor_1.jpg
+cost: $70
+description: The Acer SB220Q 21.5" Widescreen IPS display allows High-Definition entertainment and gaming in the comfort of your home.
+
+name: usb
+picture: USB_HUB_2.jpg
+cost: $20
+description: Add up to 4 devices with the Sabrent 4-Port USB 3.0 Hub.
+
+name: networking
+picture: 5_port_hub.jpg
+cost: $20
+description: Add up to 4 devices with the Sabrent 4-Port USB 3.0 Hub.
+
+name: usb
+picture: USB_mouse_4.jpg
+cost: $30
+description: Nn easy way to expand your wired network.
+
+name: networking
+picture: external_hard_drive.jpg
+cost: $70
+description: An easy way to expand your wired network.
+
+name: output device
+picture: Wireless_Headphones.jpg
+cost: $60
+description: Wireless headphones deliver a premium listening experience with pure adaptive noise canceling
+
+name: input device
+picture: Wireless_keyboard.jpg
+cost: $70
+description: Get absolute precision with this wireless mechanical keyboard.
+
+name: networking
+picture: wifi_router.jpg
+cost: $90
+description: Smart WiFi 5 Router with external antennas delivers extremely fast WiFi.
