@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import Loader from 'react-loader-spinner';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 
 class Itemlist extends Component {
@@ -15,12 +15,12 @@ class Itemlist extends Component {
   }
 
 
-/*
-  state = {
-
-  };
-
-*/
+  /*
+    state = {
+  
+    };
+  
+  */
 
   toggleChange = () => {
     console.log("isChecked is ", this.isChecked);
@@ -43,9 +43,9 @@ class Itemlist extends Component {
         <Loader
           type="Ball-Triangle"
           height={100}
-          color= "deeppink"
+          color="deeppink"
           width={100}
-          style = {{border: "4px solid deeppink", margin: "250px" }}
+          style={{ border: "4px solid deeppink", margin: "250px" }}
         />
 
         <label>
@@ -66,19 +66,19 @@ class Itemlist extends Component {
             width={150}
           />
         ) : (
-          <Loader
-            type="CradleLoader"
-            height={10}
-            width={10}
-            style = {{border: "4px solid deeppink", margin: "50px" }}
-          />
-        )}
+            <Loader
+              type="CradleLoader"
+              height={10}
+              width={10}
+              style={{ border: "4px solid deeppink", margin: "50px" }}
+            />
+          )}
 
 
       </div>
 
 
-      )
+    )
 
 
 

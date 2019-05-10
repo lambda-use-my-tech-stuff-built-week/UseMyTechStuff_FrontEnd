@@ -27,7 +27,7 @@ function App() {
         render={props => <Login {...props} isLoggingIn={false} />}
       />
       <PrivateRoute exact path="/protected" component={ItemList} />
-    </Router>
+    </Router >
   );
 }
 

@@ -11,7 +11,7 @@ export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const ERROR = "ERROR";
 
 export const login = creds => dispatch => {
-  dispatch({type: LOGIN_START});
+  dispatch({ type: LOGIN_START });
 
   return axios // we post login creds to login server
     .post(`https://usemytechstuff.herokuapp.com/api/auth/login/`, creds)
