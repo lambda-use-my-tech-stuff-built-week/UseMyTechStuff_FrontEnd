@@ -4,6 +4,7 @@ import './App.css';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
+import { FaBeer } from 'react-icons/fa';
 
 class Itemlist extends Component {
   constructor(props) {
@@ -47,6 +48,9 @@ class Itemlist extends Component {
           width={100}
           style={{ border: "4px solid deeppink", margin: "250px" }}
         />
+
+
+         <h3> Lets go for a <FaBeer />? </h3>
 
         <label>
           <input
