@@ -14,6 +14,14 @@ class Itemlist extends Component {
     };
   }
 
+
+/*
+  state = {
+
+  };
+
+*/
+
   toggleChange = () => {
     console.log("isChecked is ", this.isChecked);
     this.setState({
