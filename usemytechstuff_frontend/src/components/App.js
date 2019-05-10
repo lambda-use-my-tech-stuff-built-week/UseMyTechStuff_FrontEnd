@@ -1,26 +1,33 @@
 import React from 'react';
 //import logo from '../logo.svg';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Login from "./Login";
+import PrivateRoute from "./PrivateRoute";
 import ItemList from './ItemList';
-import Login from './Login';
-import PrivateRoute from './PrivateRoute'
 
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Use My Tech Stuff</h1>
-        <Route path='/login' component={Login} />
-        {/* <ItemList
-        msgTitle="CheckBox2Status as prop"
-        loaderType="Rings"
-        size="180"
-        color="orange" */}
-        />
-    </div>
-    </Router>
+        <ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/protected">Protected Page</Link>
+          </li>
+        </ul>
+      </div>
+      <Route
+        path="/login"
+        // component={Login}
+        render={props => <Login {...props} isLoggingIn={false} />}
+      />
+      <PrivateRoute exact path="/protected" component={ItemList} />
+    </Router >
   );
 }
 

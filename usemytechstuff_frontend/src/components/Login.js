@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
+import Loader from "react-loader-spinner";
 import { login } from '../actions';
+
 
 class Login extends React.Component {
   state = {
     credentials: {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     }
   };
 
-  changeHandler = e => {
+  handleChange = e => {
     this.setState({
       credentials: {
         ...this.state.credentials,
@@ -20,55 +21,52 @@ class Login extends React.Component {
     });
   };
 
-  login = e => {
+  handleLogin = e => {
     e.preventDefault();
     this.props
-      .login(this.state.credentials)
-      .then(() => this.props.history.push('/protected'));
+      .login(this.state.credentials) //credentials returned
+      // history updtated
+      .then(() => this.props.history.push("/protected"));
   };
+
   render() {
+    console.log("Login says isLoggingin", this.props.isLoggingIn);
     return (
       <div>
-        <form onSubmit={this.login}>
-          <label for='username'>User Account</label>
+        <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+        <form onSubmit={this.handleLogin}>
           <input
-            name='username'
-            type='text'
-            placeholder='Username'
+            type="text"
+            name="username"
+            placeholder="username"
             value={this.state.credentials.username}
-            onChange={this.changeHandler}
+            onChange={this.handleChange}
           />
-          <label for='password'>Password</label>
           <input
-            name='password'
-            type='password'
-            placeholder='•••••••'
+            type="password"
+            name="password"
+            placeholder="********"
             value={this.state.credentials.password}
-            onChange={this.changeHandler}
+            onChange={this.handleChange}
           />
-          <div />
-          {this.props.error &&
-            <p className='error'>{this.props.error}</p>
-          }
           <button>
-            {this.props.loggingIn ? (
-              <Loader
-                type='ThreeDots'
-                color="#1f2a38" height="12" width="26" />
-            ) : (
-                'Log In'
-              )}
+            {this.props.isLoggingIn ?
+              <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+              :
+              "Log in"
+            }
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = ({ error, loggingIn }) => ({
-  error,
-  loggingIn
-});
+const mapStateToProps = state => {
+  return {
+    isLoggingIn: state.isLoggingIn
+  };
+};
 
 export default connect(
   mapStateToProps,

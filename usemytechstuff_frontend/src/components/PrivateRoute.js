@@ -1,16 +1,18 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, errorStatusCode, ...rest }) => {
+
+const PrivateRoute = ({ component: Genericomponent, ...therest }) => {
   return (
     <Route
-      {...rest}
-      render={props => {
-        if (localStorage.getItem('token') && errorStatusCode !== 403) {
-          return <Component {...props} />;
+      {...therest} // the props sent in via render prop !!!
+      render={() => {
+        //  if token exists, we return component passed in (e.g. GasPrices)
+        if (localStorage.getItem("token")) {
+          return <Genericomponent />;
         } else {
-          // redirect to login
+          console.log("redirecting back to Login !!!!");
+          console.log("therest ", therest);
           return <Redirect to="/login" />;
         }
       }}
@@ -18,11 +20,4 @@ const PrivateRoute = ({ component: Component, errorStatusCode, ...rest }) => {
   );
 };
 
-const mapStateToProps = ({ errorStatusCode }) => ({
-  errorStatusCode
-});
-
-export default connect(
-  mapStateToProps,
-  {}
-)(PrivateRoute);
+export default PrivateRoute;
