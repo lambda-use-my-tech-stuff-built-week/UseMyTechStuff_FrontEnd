@@ -13,16 +13,22 @@ export const ERROR = "ERROR";
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
 
+
+
   return axios // we post login creds to login server
     .post(`https://usemytechstuff.herokuapp.com/api/auth/login/`, creds)
     .then(res => {
       // local storage stores token passed in
-      localStorage.setItem("token", res.data.payload);
+      console.log('response.data is >> ', res.data);
+    //  localStorage.setItem("token", res.data.payload)
+      localStorage.setItem('token', res.data.token);        // added
+  //    localStorage.setItem('user_id', res.data.user_id);    // added
     })
     .catch(err => {
       console.log("login err: ", err);
       if (err.response.status === 403) {
         localStorage.removeItem("token");
+   //     localStorage.removeItem("user_id");
       }
       dispatch({ type: LOGIN_RESOLVED });
     });

@@ -9,7 +9,9 @@ import {
 } from "../actions";
 
 const initialState = {
-  items: [],
+  items: [],                   // ADDED
+  user: {},                    // ADDED
+  user_id: null,               // ADDED
   isLoggingIn: false,
   error: '',
   fetchingData: false,
@@ -27,7 +29,8 @@ export const itemsReducer = (state = initialState, action) => {
     case LOGIN_RESOLVED: {
       return {
         ...state,
-        isLoggingIn: false
+        isLoggingIn: false,
+    //    user_id: action.payload.user_id,     // ADDED
       };
     }
 
