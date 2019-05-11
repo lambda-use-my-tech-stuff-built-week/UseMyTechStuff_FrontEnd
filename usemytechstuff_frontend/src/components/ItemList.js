@@ -14,9 +14,6 @@ class Itemlist extends Component {
     state = {
       isChecked: true,
 
-
-
-
     };
 
   toggleChange = () => {
@@ -46,7 +43,6 @@ class Itemlist extends Component {
           style={{ border: "4px solid deeppink", margin: "250px" }}
         />
 
-
         <h3> Lets go for a <FaBeer />? </h3>
 
         <label>
@@ -74,23 +70,10 @@ class Itemlist extends Component {
             style={{ border: "4px solid deeppink", margin: "50px" }}
           />
         )}
-
-
       </div>
 
-
     )
-
-
-
-
-
-
-
-
   }
-
-
 
 }
 

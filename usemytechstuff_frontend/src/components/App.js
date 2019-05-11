@@ -11,7 +11,10 @@ import NavBar from './layout/NavBar';
 
 
 /*
- {/* <div className="App">
+    <Router>
+      <div className="App">
+        <NavBar />
+        {/* <div className="App">
           <ul>
             <li>
               <Link to="/login">Login</Link>
@@ -26,8 +29,9 @@ import NavBar from './layout/NavBar';
           // component={Login}
           render={props => <Login {...props} isLoggingIn={false} />}
         />
-        <PrivateRoute exact path="/protected" component={ItemList} /> }
-
+      //  <PrivateRoute exact path="/protected" component={ItemList} /> }
+</div>
+</Router>
  */
 
 
