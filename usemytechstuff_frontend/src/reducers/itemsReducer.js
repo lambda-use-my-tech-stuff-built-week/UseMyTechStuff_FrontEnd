@@ -15,7 +15,7 @@ const initialState = {
   isLoggingIn: false,
   error: '',
   fetchingData: false,
-
+  token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
@@ -30,6 +30,7 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
+
     //    user_id: action.payload.user_id,     // ADDED
       };
     }
