@@ -4,9 +4,9 @@ import { itemsReducer } from './itemsReducer';
 
 
 export default combineReducers({
-  itemsReducer,
+  techItems: itemsReducer,
   //  selectedItemReducer,
 
-// flgjskfjbsdjhbsdjbskdjhfbsdjh ksdj vksdjfv s,djf ksdjfbv
+
 
 });
