@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
  import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
  import ItemList from './ItemList';         // UNCOMMENTED
 import NavBar from './layout/NavBar';
+import TechItemlist from "./TechItemList";
 
 
 
@@ -41,22 +42,6 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
-        {/* <div className="App">
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/protected">Protected Page</Link>
-            </li>
-          </ul>
-        </div>
-        <Route
-          path="/login"
-          // component={Login}
-          render={props => <Login {...props} isLoggingIn={false} />}
-        />
-        <PrivateRoute exact path="/protected" component={ItemList} /> */}
       </div>
     </Router>
   );
