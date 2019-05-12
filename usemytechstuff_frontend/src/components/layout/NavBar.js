@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+// import { connect } from 'react-redux';
+
 
 
 // className="nav-wrapper #1e88e5 blue darken-1 z-depth-2">
@@ -34,5 +36,13 @@ const NavBar = () => {
 
   )
 };
+
+// const mapStateToProps = state => ({
+//   return {
+
+//   }
+// })
+
+// export default connect(mapStateToProps)(NavBar);
 
 export default NavBar;

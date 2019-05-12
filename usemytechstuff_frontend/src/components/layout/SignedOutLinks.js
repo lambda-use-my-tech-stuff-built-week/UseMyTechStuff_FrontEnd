@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Login from "../Login";
 import PrivateRoute from "../PrivateRoute";
 import ItemList from '../ItemList';
