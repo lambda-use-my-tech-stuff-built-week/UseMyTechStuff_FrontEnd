@@ -7,21 +7,14 @@ import { withRouter } from "react-router-dom";
 import { FaBeer } from 'react-icons/fa';
 
 class Itemlist extends Component {
-  constructor(props) {
-    console.log(props);
-    super(props);
-    this.state = {
-      isChecked: true
-    };
-  }
 
 
-  /*
+
+
     state = {
-  
+      isChecked: true,
+
     };
-  
-  */
 
   toggleChange = () => {
     console.log("isChecked is ", this.isChecked);
@@ -29,6 +22,7 @@ class Itemlist extends Component {
       isChecked: !this.state.isChecked
     });
   };
+
 
   componentDidMount() {
 
@@ -49,8 +43,10 @@ class Itemlist extends Component {
           style={{ border: "4px solid deeppink", margin: "250px" }}
         />
 
-
-         <h3> Lets go for a <FaBeer />? </h3>
+        <h3> Lets go for a <FaBeer />? </h3>
+        <h3> Lets go for a <FaBeer />? </h3>
+        <h3> Lets go for a <FaBeer />? </h3>
+        <h1> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h1>
 
         <label>
           <input
@@ -70,30 +66,23 @@ class Itemlist extends Component {
             width={150}
           />
         ) : (
-            <Loader
-              type="CradleLoader"
-              height={10}
-              width={10}
-              style={{ border: "4px solid deeppink", margin: "50px" }}
-            />
-          )}
+          <Loader
+            type="CradleLoader"
+            height={10}
+            width={10}
+            style={{ border: "4px solid deeppink", margin: "50px" }}
+          />
+        )}
 
+
+      <h1> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h1>
 
       </div>
 
 
+
     )
-
-
-
-
-
-
-
-
   }
-
-
 
 }
 

@@ -22,39 +22,46 @@ class Login extends React.Component {
 
   handleLogin = e => {
     e.preventDefault();
-    this.props
-      .login(this.state.credentials) //credentials returned
-      // history updtated
-      .then(() => this.props.history.push("/protected"));
+    const {username, password} = this.state.credentials;
+
+    if(username && password) {
+
+      this.props
+        .login(this.state.credentials) //credentials returned
+        // history updated
+        .then(() => this.props.history.push("/protected"));
+    }
+
   };
 
   render() {
     console.log("Login says isLoggingin", this.props.isLoggingIn);
     return (
       <div>
-        <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
         <form onSubmit={this.handleLogin}>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="********"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>
-            {this.props.isLoggingIn ?
-              <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-              :
-              "Log in"
-            }
-          </button>
+          <label htmlFor = "username">Account</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={this.state.credentials.username}
+              onChange={this.handleChange}
+            />
+          <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="********"
+              value={this.state.credentials.password}
+              onChange={this.handleChange}
+            />
+            <button>
+              {this.props.isLoggingIn ?
+                <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+                :
+                "Log in"
+              }
+            </button>
         </form>
       </div>
     );
