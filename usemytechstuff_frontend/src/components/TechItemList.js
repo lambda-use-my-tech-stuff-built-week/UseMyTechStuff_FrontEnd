@@ -48,9 +48,14 @@ class TechItemlist extends Component {
 
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
-          <div key = {id}>
+          <div key = {id}
+               style =  {{
+                 border: "1px solid red",
+                 margin: "5px",
+
+               }}     >
             <h3> ID: {techItem.user_id} </h3>
-            <h4> Name: {techItem.name} </h4>
+            <h4 > Name: {techItem.name} </h4>
             <h4> Category: {techItem.category} </h4>
             <img
               style = { {
@@ -59,9 +64,9 @@ class TechItemlist extends Component {
               } }
 
               src =  {techItem.picture} alt = "alt-img"  />
-            <h4> Cost: {techItem.cost} </h4>
+            <h4> Cost: ${techItem.cost} </h4>
             <h4> Availability: {techItem.availability} </h4>
-            <h4> Description: {techItem.description} </h4>
+            <h4 style = {{fontSize: "16px"}}>  Description: {techItem.description} </h4>
 
 
           </div>
