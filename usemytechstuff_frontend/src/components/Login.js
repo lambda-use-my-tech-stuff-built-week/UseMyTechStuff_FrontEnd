@@ -24,15 +24,13 @@ class Login extends React.Component {
     e.preventDefault();
     const {username, password} = this.state.credentials;
 
-
     if(username && password) {
 
       this.props
         .login(this.state.credentials) //credentials returned
-        // history updtated
+        // history updated
         .then(() => this.props.history.push("/protected"));
     }
-
 
   };
 

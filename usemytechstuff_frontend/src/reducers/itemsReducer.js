@@ -9,7 +9,7 @@ import {
 } from "../actions";
 
 const initialState = {
-  items: [],                   // ADDED
+  techItems: [],                   // ADDED
   user: {},                    // ADDED
   user_id: '',               // ADDED
   isLoggingIn: false,
@@ -47,7 +47,7 @@ export const itemsReducer = (state = initialState, action) => {
         error: '',
         fetchingData: false,
         isLoggingIn: false,
-        friends: action.payload,
+        techItems: action.payload,
       };
     //   case FETCH_DATA_FAILURE:
 
