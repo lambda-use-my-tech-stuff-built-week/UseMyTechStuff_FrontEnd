@@ -1,31 +1,37 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addUser } from '../actions/signUp';
 
-class SignUp extends Component {
+
+class SignUpForm extends Component {
   state = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    country: "",
-    state: "",
-    username: "",
-    password: ""
+    newUser: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phonenumber: "",
+      country: "",
+      state: "",
+      username: "",
+      password: ""
+    }
   }
 
-  // componentDidMount() {
-  //   this.props.
-  // }
+  componentDidMount
 
   handleChange = e => {
+    console.log(e);
     this.setState({
-      [e.target.name]: e.target.value
+      newUser: {
+        ...this.state.newUser,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
   handleSubmit = e => {
     e.preventDefault();
+
     console.log(this.state);
   }
 
@@ -36,42 +42,75 @@ class SignUp extends Component {
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Sign Up</h5>
           <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} />
+            <label htmlFor="firstname">First Name</label>
+            <input
+              type="text"
+              name="firstname"
+              value={this.state.newUser.firstName}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} />
+            <label htmlFor="lastname">Last name</label>
+            <input
+              type="text"
+              name="lastname"
+              value={this.state.newUser.lastName}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
+            <input
+              type="email"
+              name="email"
+              value={this.state.newUser.email}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input type="tel" id="phoneNumber" onChange={this.handleChange} />
+            <label htmlFor="phonenumber">Phone Number</label>
+            <input
+              type="tel"
+              name="phonenumber"
+              value={this.state.newUser.phoneNumber}
+              onChange={this.handleChange}
+            />
           </div>
-          <div className="input-field">
-            <select>
-              <option value="" disabled selected>Country</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
+          {/* <div className="input-field">
             <label htmlFor="country">Country</label>
-            <input type="text" id="country" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="country"
+              value={this.state.newUser.country}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="state">State</label>
-            <input type="text" id="state" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="state"
+              value={this.state.newUser.state}
+              onChange={this.handleChange}
+            />
+          </div> */}
+          <div className="input-field">
+            <label htmlFor="username">Create Username</label>
+            <input
+              type="text"
+              name="username"
+              value={this.state.newUser.username}
+              onChange={this.handleChange}
+            />
           </div>
           <div className="input-field">
-            <label htmlFor="username">User Name</label>
-            <input type="text" id="username" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
+            <label htmlFor="password">Create Password</label>
+            <input
+              type="password"
+              name="password"
+              value={this.state.newUser.password}
+              onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <button className="waves-effect waves-light btn #1e88e5 blue darken-1 white-text  z-depth-1">Sign Up</button>
@@ -82,5 +121,21 @@ class SignUp extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    addingUser: state.addingUser
+  }
+}
 
-export default SignUp;
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addUser: (newUser) => dispatch(addUser(newUser))
+//   }
+// }
+
+export default connect(
+  mapStateToProps,
+  { addUser }
+)(SignUpForm);
+
+
