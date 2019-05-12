@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Loader from 'react-loader-spinner';
+
+import {getTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import { FaBeer } from 'react-icons/fa';
 
 class TechItemlist extends Component {
-
-  state = {
-    isChecked: true,
-
-  };
 
 
 /*
@@ -25,11 +22,13 @@ class TechItemlist extends Component {
 */
 
   componentDidMount() {
-
-
+    this.props.getTech();
   }
 
   // handlers
+
+
+
 
   render() {
 
@@ -45,27 +44,30 @@ class TechItemlist extends Component {
       >
 
         <h3> Lets go for a <FaBeer />? </h3>
-
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-        <h5> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h5>
-
+        <h2> Available Used Tech !!!  </h2>
 
       </div>
 
-
-
     )
   }
-
 }
 
 
-/*
-const mapStateToProps = ({}) => ({
+
+        {this.props.techItems.techItems.map( (techItem, index) => (
+          <div
+            key = {index}>
+            <h6> {techItem.name} </h6>
+          </div>
+        ))}
+
+
+
+
+
+const mapStateToProps = ({techItems, fetchingData}) => ({
+  techItems,
+  fetchingData,
 
 
 });
@@ -73,12 +75,8 @@ const mapStateToProps = ({}) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    {}
+    {getTech}
 
-  )(Itemlist)
+  )(TechItemlist)
 
 );
-
-*/
-
-export default TechItemlist;
