@@ -11,7 +11,7 @@ import {
 const initialState = {
   items: [],                   // ADDED
   user: {},                    // ADDED
-  user_id: null,               // ADDED
+  user_id: '',               // ADDED
   isLoggingIn: false,
   error: '',
   fetchingData: false,
@@ -31,7 +31,7 @@ export const itemsReducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
 
-    //    user_id: action.payload.user_id,     // ADDED
+        user_id: action.payload.user_id,     // ADDED
       };
     }
 

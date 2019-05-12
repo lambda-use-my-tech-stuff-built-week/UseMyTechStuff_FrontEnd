@@ -20,7 +20,7 @@ export const login = creds => dispatch => {
       console.log('response.data is >> ', res.data);
   //    localStorage.setItem("token", res.data.payload);
       localStorage.setItem('token', res.data.token);        // added
-  //    localStorage.setItem('user_id', res.data.user_id);    // breaks on black login
+      localStorage.setItem('user_id', res.data.user_id);    // breaks on blank login
     })
     .catch(err => {
       console.log("login err: ", err);
