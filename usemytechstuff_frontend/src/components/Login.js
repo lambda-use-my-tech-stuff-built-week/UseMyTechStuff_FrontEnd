@@ -22,15 +22,18 @@ class Login extends React.Component {
 
   handleLogin = e => {
     e.preventDefault();
-    const {username, password} = this.state.credentials;
+   const {username, password} = this.state.credentials;
 
-    if(username && password) {
+ if(username && password) {
 
       this.props
         .login(this.state.credentials) //credentials returned
         // history updated
         .then(() => this.props.history.push("/protected"));
-    }
+    } else {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+ }
 
   };
 
@@ -70,7 +73,9 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoggingIn: state.isLoggingIn
+    isLoggingIn: state.isLoggingIn,
+    username: state.username,
+
   };
 };
 

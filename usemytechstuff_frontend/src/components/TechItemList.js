@@ -54,7 +54,7 @@ class TechItemlist extends Component {
                  margin: "5px",
 
                }}     >
-            <h3> ID: {techItem.user_id} </h3>
+            <h3> Owner: {techItem.user} </h3>
             <h4 > Name: {techItem.name} </h4>
             <h4> Category: {techItem.category} </h4>
             <img

@@ -10,8 +10,9 @@ import {
 
 const initialState = {
   techItems: [],                   // ADDED
-  user: {},                    // ADDED
+//  username: {},                    // ADDED
   user_id: '',               // ADDED
+  username: '',
   isLoggingIn: false,
   error: '',
   fetchingData: false,
@@ -30,8 +31,9 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggingIn: false,
-
+        name: action.payload.name,            // ADDED
         user_id: action.payload.user_id,     // ADDED
+        username: action.payload.username            // ADDED
       };
     }
 
@@ -55,7 +57,8 @@ export const itemsReducer = (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+
       };
     default:
       return state;
