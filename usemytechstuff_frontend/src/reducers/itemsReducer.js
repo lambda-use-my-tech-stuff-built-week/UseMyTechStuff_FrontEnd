@@ -10,7 +10,6 @@ import {
 
 const initialState = {
   techItems: [],                   // ADDED
-//  username: {},                    // ADDED
   user_id: '',               // ADDED
   username: '',
   isLoggingIn: false,

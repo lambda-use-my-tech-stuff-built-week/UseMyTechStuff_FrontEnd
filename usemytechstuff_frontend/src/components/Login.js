@@ -38,9 +38,17 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log("Login says isLoggingin", this.props.isLoggingIn);
     return (
       <div>
+
+        <Loader
+          className="section"
+          type="ThreeDots"
+          color="#1f2a38"
+          height="12"
+          width="26"
+        />
+
         <form onSubmit={this.handleLogin}>
           <label htmlFor = "username">Account</label>
             <input
@@ -58,19 +66,23 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button>
-              {this.props.isLoggingIn ?
-                <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-                :
-                "Log in"
-              }
-            </button>
+          <button>
+            {this.props.isLoggingIn ?
+              <Loader className = "section" type="ThreeDots" color="blue" height="60" width="80" />
+              :
+              "Log in"
+            }
+          </button>
+
+
+
         </form>
       </div>
     );
   }
 }
 
+/*
 const mapStateToProps = state => {
   return {
     isLoggingIn: state.isLoggingIn,
@@ -78,6 +90,17 @@ const mapStateToProps = state => {
 
   };
 };
+ */
+
+
+const mapStateToProps = ({isLoggingIn, username}) => ({
+  isLoggingIn,
+  username,
+
+
+});
+
+
 
 export default connect(
   mapStateToProps,
