@@ -33,6 +33,7 @@ class Login extends React.Component {
     } else {
       localStorage.removeItem("token");
       localStorage.removeItem("user_id");
+      localStorage.removeItem("username");
     }
 
   };
@@ -40,14 +41,6 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-
-        <Loader
-          className="section"
-          type="ThreeDots"
-          color="#1f2a38"
-          height="12"
-          width="26"
-        />
 
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Account</label>
@@ -86,17 +79,20 @@ class Login extends React.Component {
 const mapStateToProps = state => {
   return {
     isLoggingIn: state.isLoggingIn,
-    username: state.username,
+    username: state.credentials.username,
 
   };
 };
- */
+*/
 
 
+<<<<<<< HEAD
 const mapStateToProps = ({ isLoggingIn, username }) => ({
+=======
+const mapStateToProps = ({isLoggingIn, username }) => ({
+>>>>>>> da973e6097ce62b7d61cfded76bf45aa0bbb60ef
   isLoggingIn,
   username,
-
 
 });
 

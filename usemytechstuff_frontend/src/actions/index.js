@@ -20,8 +20,9 @@ export const login = creds => dispatch => {
       console.log('response.data is >> ', res.data);
       //    localStorage.setItem("token", res.data.payload);
       localStorage.setItem('token', res.data.token);        // added
-      localStorage.setItem('user_id', res.data.user_id);    // breaks on blank login
-      dispatch({ type: LOGIN_RESOLVED, payload: res.data })
+      localStorage.setItem('user_id', res.data.user_id);    // added
+      localStorage.setItem('username', res.data.username);    // Just added , not showing up !!!
+      dispatch({type: LOGIN_RESOLVED, payload: res.data})
     })
     .catch(err => {
       console.log("login err: ", err);
