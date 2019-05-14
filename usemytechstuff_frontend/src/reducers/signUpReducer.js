@@ -2,14 +2,14 @@ import {
   CREATE_USER,
   ADD_USER_SUCCESS,
   ADD_USER_FAILURE,
-  FETCH_ITEMS,
-  FETCH_ITEMS_SUCCESS,
-  FETCH_ITEMS_FAILURE,
+  FETCH_DATA,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE,
 } from '../actions';
 
 const initialState = {
   items: [],
-  fetchingItems: false,
+  fetchingData: false,
   addingUser: false,
   error: null
 }
@@ -36,24 +36,24 @@ export const signUpReducer = (state = initialState, action) => {
         error: action.payload
       }
 
-    case FETCH_ITEMS:
+    case FETCH_DATA:
       return {
         ...state,
-        fetchingItems: true
+        fetchingData: true
       };
 
-    case FETCH_ITEMS_SUCCESS:
+    case FETCH_DATA_SUCCESS:
       return {
         ...state,
-        fetchingItems: false,
+        fetchingData: false,
         smurfs: action.payload,
         error: null
       };
 
-    case FETCH_ITEMS_FAILURE:
+    case FETCH_DATA_FAILURE:
       return {
         ...state,
-        fetchingItems: false,
+        fetchingData: false,
         error: action.payload
       };
 

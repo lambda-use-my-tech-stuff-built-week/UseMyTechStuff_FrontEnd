@@ -8,13 +8,16 @@ import SignedOutLinks from './SignedOutLinks';
 
 const NavBar = () => {
   return (
-    <nav className="nav-wrapper #1e88e5 blue darken-1 z-depth-2">
-      <div className="container">
-        <Link to="/" className="brand-logo">Use My Tech Stuff</Link>
-        <SignedInLinks />
-        <SignedOutLinks />
-      </div>
-    </nav>
+    <div style={{ width: "90%", }}>
+      <nav
+        className="nav-wrapper #1e88e5 blue darken-1 z-depth-2">
+        <div className="container">
+          <Link to="/" className="brand-logo">Use My Tech Stuff</Link>
+          <SignedInLinks />
+          <SignedOutLinks />
+        </div>
+      </nav>
+    </div>
   )
 }
 

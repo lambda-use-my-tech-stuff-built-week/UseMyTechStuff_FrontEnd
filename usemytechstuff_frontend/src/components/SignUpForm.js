@@ -10,8 +10,8 @@ class SignUpForm extends Component {
       lastname: "",
       email: "",
       phonenumber: "",
-      country: "",
-      state: "",
+      // country: "",
+      // state: "",
       username: "",
       password: ""
     }
@@ -51,7 +51,7 @@ class SignUpForm extends Component {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="lastname">Last name</label>
+            <label htmlFor="lastname">Last Name</label>
             <input
               type="text"
               name="lastname"

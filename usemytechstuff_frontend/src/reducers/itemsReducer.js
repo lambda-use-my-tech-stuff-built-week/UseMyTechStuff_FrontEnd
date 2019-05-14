@@ -9,11 +9,13 @@ import {
 } from "../actions";
 
 const initialState = {
-  items: [],
+  techItems: [],                   // ADDED
+  user: {},                    // ADDED
+  user_id: '',               // ADDED
   isLoggingIn: false,
   error: '',
   fetchingData: false,
-
+  token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
@@ -27,7 +29,9 @@ export const itemsReducer = (state = initialState, action) => {
     case LOGIN_RESOLVED: {
       return {
         ...state,
-        isLoggingIn: false
+        isLoggingIn: false,
+
+        user_id: action.payload.user_id,     // ADDED
       };
     }
 
@@ -43,7 +47,7 @@ export const itemsReducer = (state = initialState, action) => {
         error: '',
         fetchingData: false,
         isLoggingIn: false,
-        friends: action.payload,
+        techItems: action.payload,
       };
     //   case FETCH_DATA_FAILURE:
 

@@ -5,9 +5,9 @@ export const CREATE_USER = 'CREATE_USER';
 export const ADD_USER = 'ADD_USER';
 export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS'
 export const ADD_USER_FAILURE = 'ADD_USER_FAILURE'
-export const FETCH_ITEMS = 'FETCH_ITEMS';
-export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS';
-export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE';
+export const FETCH_DATA = 'FETCH_ITEMS';
+export const FETCH_DATA_SUCCESS = 'FETCH_ITEMS_SUCCESS';
+export const FETCH_DATA_FAILURE = 'FETCH_ITEMS_FAILURE';
 
 
 
@@ -25,16 +25,16 @@ export const addUser = newUser => dispatch => {
 }
 
 export const getItems = () => dispatch => {
-  dispatch({ type: FETCH_ITEMS });
+  dispatch({ type: FETCH_DATA });
   axios
     .get('https://usemytechstuff.herokuapp.com/api/tech')
     .then(res => {
       dispatch({
-        type: FETCH_ITEMS_SUCCESS,
+        type: FETCH_DATA_SUCCESS,
         payload: res.data
       });
     })
     .catch(err => {
-      dispatch({ type: FETCH_ITEMS_FAILURE, payload: err });
+      dispatch({ type: FETCH_DATA_FAILURE, payload: err });
     });
 };

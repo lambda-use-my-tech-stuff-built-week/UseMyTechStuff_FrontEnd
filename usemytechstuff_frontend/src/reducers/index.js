@@ -5,8 +5,9 @@ import { itemsReducer } from './itemsReducer';
 
 export default combineReducers({
   itemsReducer,
+  // signUpReducer,
   //  selectedItemReducer,
 
-// flgjskfjbsdjhbsdjbskdjhfbsdjh ksdj vksdjfv s,djf ksdjfbv
+
 
 });
