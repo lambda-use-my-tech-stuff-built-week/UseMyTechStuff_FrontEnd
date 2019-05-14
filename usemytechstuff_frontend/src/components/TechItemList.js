@@ -44,7 +44,11 @@ class TechItemlist extends Component {
         } }
       >
 
-        <h2> Available Used Tech !!!  </h2>
+        {this.props.techItems.fetchingData?
+          <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
+          :
+          <h3> TechItems for Rent !</h3>
+        }
 
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
@@ -54,7 +58,7 @@ class TechItemlist extends Component {
                  margin: "5px",
 
                }}     >
-            <h3> ID: {techItem.user_id} </h3>
+            <h3> Owner: {techItem.user} </h3>
             <h4 > Name: {techItem.name} </h4>
             <h4> Category: {techItem.category} </h4>
             <img
@@ -82,23 +86,6 @@ class TechItemlist extends Component {
     )
   }
 }
-
-/*
-
-
- */
-
-
-/*
-        {this.props.techItems.techItems.map( (techItem, index) => (
-          <div
-            key = {index}>
-            <h6> {techItem.name} </h6>
-          </div>
-        ))}
-
- */
-
 
 
 const mapStateToProps = ({techItems, fetchingData}) => ({

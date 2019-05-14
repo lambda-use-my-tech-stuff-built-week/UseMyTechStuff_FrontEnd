@@ -22,22 +22,33 @@ class Login extends React.Component {
 
   handleLogin = e => {
     e.preventDefault();
-    const {username, password} = this.state.credentials;
+   const {username, password} = this.state.credentials;
 
-    if(username && password) {
+ if(username && password) {
 
       this.props
         .login(this.state.credentials) //credentials returned
         // history updated
         .then(() => this.props.history.push("/protected"));
-    }
+    } else {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+ }
 
   };
 
   render() {
-    console.log("Login says isLoggingin", this.props.isLoggingIn);
     return (
       <div>
+
+        <Loader
+          className="section"
+          type="ThreeDots"
+          color="#1f2a38"
+          height="12"
+          width="26"
+        />
+
         <form onSubmit={this.handleLogin}>
           <label htmlFor = "username">Account</label>
             <input
@@ -55,24 +66,41 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChange}
             />
-            <button>
-              {this.props.isLoggingIn ?
-                <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-                :
-                "Log in"
-              }
-            </button>
+          <button>
+            {this.props.isLoggingIn ?
+              <Loader className = "section" type="ThreeDots" color="blue" height="60" width="80" />
+              :
+              "Log in"
+            }
+          </button>
+
+
+
         </form>
       </div>
     );
   }
 }
 
+/*
 const mapStateToProps = state => {
   return {
-    isLoggingIn: state.isLoggingIn
+    isLoggingIn: state.isLoggingIn,
+    username: state.username,
+
   };
 };
+ */
+
+
+const mapStateToProps = ({isLoggingIn, username}) => ({
+  isLoggingIn,
+  username,
+
+
+});
+
+
 
 export default connect(
   mapStateToProps,
