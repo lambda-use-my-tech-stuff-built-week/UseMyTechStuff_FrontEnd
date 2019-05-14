@@ -1,43 +1,45 @@
 import React from 'react';
 //import logo from '../logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Login from "./Login";
-// import PrivateRoute from "./PrivateRoute";
-// import ItemList from './ItemList';
-import NavBar from './layout/NavBar';
-import SignUpForm from './SignUpForm';
 
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from "./Login";               // UNCOMMENTED
+import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
+import TechItemlist from "./TechItemList";
+import SignUpForm from './SignUpForm';
+import User from './User';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />
-        <Switch>
-          <Route
-            path="/signupform" component={SignUpForm}
-          // render={props => <SignUpForm {...props} addingUser={true} />}
-          />
-        </Switch>
-        {/* <div className="App">
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/protected">Protected Page</Link>
-            </li>
-          </ul>
-        </div>
-        <Route
-          path="/login"
-          // component={Login}
-          render={props => <Login {...props} isLoggingIn={false} />}
-        />
-        <PrivateRoute exact path="/protected" component={ItemList} /> */}
+        <ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/protected">Protected Page</Link>
+          </li>
+          <li>
+            <Link to="/signupform">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/user">Techies</Link>
+          </li>
+        </ul>
       </div>
+      <Route
+        path="/login"
+        // component={Login}
+        render={props => <Login {...props} isLoggingIn={false} />}
+      />
+      <PrivateRoute exact path="/protected" component={TechItemlist} />
+      <PrivateRoute exact path="/user" component={User} />
+      <Route
+        path='/signupform' component={SignUpForm} />
     </Router>
+
   );
 }
 

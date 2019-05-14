@@ -1,22 +1,22 @@
 import {
-  CREATE_USER,
+  CREATE_USER_START,
   ADD_USER_SUCCESS,
   ADD_USER_FAILURE,
-  FETCH_DATA,
-  FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE,
+  FETCH_USERS_START,
+  FETCH_USERS_SUCCESS,
+  FETCH_USERS_FAILURE,
 } from '../actions';
 
 const initialState = {
-  items: [],
-  fetchingData: false,
+  users: [],
+  fetchingUsers: false,
   addingUser: false,
   error: null
 }
 
 export const signUpReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_USER:
+    case CREATE_USER_START:
       return {
         ...state,
         addingUser: true
@@ -36,24 +36,24 @@ export const signUpReducer = (state = initialState, action) => {
         error: action.payload
       }
 
-    case FETCH_DATA:
+    case FETCH_USERS_START:
       return {
         ...state,
-        fetchingData: true
+        fetchingUsers: true
       };
 
-    case FETCH_DATA_SUCCESS:
+    case FETCH_USERS_SUCCESS:
       return {
         ...state,
-        fetchingData: false,
-        smurfs: action.payload,
+        fetchingUsers: false,
+        techUsers: action.payload,
         error: null
       };
 
-    case FETCH_DATA_FAILURE:
+    case FETCH_USERS_FAILURE:
       return {
         ...state,
-        fetchingData: false,
+        fetchingUsers: false,
         error: action.payload
       };
 

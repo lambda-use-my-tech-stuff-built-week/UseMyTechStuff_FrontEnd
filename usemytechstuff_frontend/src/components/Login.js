@@ -30,14 +30,25 @@ class Login extends React.Component {
         .login(this.state.credentials) //credentials returned
         // history updated
         .then(() => this.props.history.push("/protected"));
+    } else {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user_id");
     }
 
   };
 
   render() {
-    console.log("Login says isLoggingin", this.props.isLoggingIn);
     return (
       <div>
+
+        <Loader
+          className="section"
+          type="ThreeDots"
+          color="#1f2a38"
+          height="12"
+          width="26"
+        />
+
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Account</label>
           <input
@@ -62,17 +73,34 @@ class Login extends React.Component {
               "Log in"
             }
           </button>
+
+
+
         </form>
       </div>
     );
   }
 }
 
+/*
 const mapStateToProps = state => {
   return {
-    isLoggingIn: state.isLoggingIn
+    isLoggingIn: state.isLoggingIn,
+    username: state.username,
+
   };
 };
+ */
+
+
+const mapStateToProps = ({ isLoggingIn, username }) => ({
+  isLoggingIn,
+  username,
+
+
+});
+
+
 
 export default connect(
   mapStateToProps,

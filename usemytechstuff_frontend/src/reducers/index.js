@@ -4,8 +4,7 @@ import { itemsReducer } from './itemsReducer';
 
 
 export default combineReducers({
-  itemsReducer,
-  // signUpReducer,
+  techItems: itemsReducer,
   //  selectedItemReducer,
 
 
