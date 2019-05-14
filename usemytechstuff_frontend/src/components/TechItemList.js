@@ -28,18 +28,23 @@ class TechItemlist extends Component {
   // handlers
 
 
-
+// <button className = "renterButton" > Rent Item </button>
 
   render() {
+
+    console.log("HEY");
 
     return (
       <div
         style = { {
-          width: "100%",
-          backgroundColor: "lightgray",
+          border: "5px solid blue",
+          width: "75%",
+          backgroundColor: "ivory",
+          margin: "0 auto",
           color: "black",
           display: "flex",
-          flexDirection: "column",
+          flexWrap: "wrap",
+          justifyContent: "space-evenly",
           padding: "50px",
         } }
       >
@@ -47,30 +52,75 @@ class TechItemlist extends Component {
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
-          <h3> TechItems for Rent !</h3>
+          <h3
+            style = { {
+              width: "75%",
+              border: "1px solid green",
+              fontSize: "40px",
+              margin: "5px auto",
+              color: "black",
+              display: "flex",
+              justifyContent: "center",
+            } }
+          > TechItems for Rent !</h3>
         }
 
+
+        <h2> </h2>
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
           <div key = {id}
                style =  {{
                  border: "1px solid red",
-                 margin: "5px",
-
+                 margin: "2px",
+                 width: "30%",
                }}     >
-            <h3> Owner: {techItem.user} </h3>
-            <h4 > Name: {techItem.name} </h4>
-            <h4> Category: {techItem.category} </h4>
-            <img
-              style = { {
-                maxWidth: "40%",
-                padding: "10px",
-              } }
 
-              src =  {techItem.picture} alt = "alt-img"  />
-            <h4> Cost: ${techItem.cost} </h4>
-            <h4> Availability: {techItem.availability} </h4>
-            <h4 style = {{fontSize: "16px"}}>  Description: {techItem.description} </h4>
+            <div className = "buttons-container">
+              {Number(localStorage.getItem('user_id')) === techItem.user_id
+                ? <button className = "ownerButton"> Delete Item </button>
+
+                : techItem.availability
+                      ? <h3 className = "borderFormat avail"> Available </h3>
+                      : <h3 className = "borderFormat rented"> Rented </h3>
+                }
+
+
+              {Number(localStorage.getItem('user_id')) !== techItem.user_id
+                ? <button className = "renterButton" > Rent Item </button>
+                : null
+              }
+
+
+              {Number(localStorage.getItem('user_id')) === techItem.user_id
+                ? <button className = "ownerButton"> Update Item </button>
+                : null
+              }
+            </div>
+
+
+            
+            <div className = "img-container">
+              <img
+                style = { {
+                  maxHeight: "150px",
+                  padding: "10px",
+                  margin: "0 auto",
+                } }
+
+                src =  {techItem.picture} alt = "alt-img"
+              />
+            </div>
+
+
+            <h3 className = "borderFormat"> Owner: {techItem.user} </h3>
+            <h4 className = "borderFormat" >ID: {techItem.user_id}</h4>
+            <h4 className = "borderFormat"  > {techItem.name} </h4>
+            <h4 className = "borderFormat" > Category: {techItem.category} </h4>
+
+            <h4 className = "borderFormat"> Cost: ${techItem.cost} </h4>
+            <h4 className = "borderFormat"> Availability: {techItem.availability} </h4>
+            <h4 className = "borderFormat" style = {{fontSize: "12px"}}>  Description: {techItem.description} </h4>
 
 
           </div>
@@ -91,6 +141,7 @@ class TechItemlist extends Component {
 const mapStateToProps = ({techItems, fetchingData}) => ({
   techItems,
   fetchingData,
+
 
 
 });
