@@ -22,19 +22,19 @@ class Login extends React.Component {
 
   handleLogin = e => {
     e.preventDefault();
-   const {username, password} = this.state.credentials;
+    const { username, password } = this.state.credentials;
 
- if(username && password) {
+    if (username && password) {
 
       this.props
         .login(this.state.credentials) //credentials returned
         // history updated
         .then(() => this.props.history.push("/protected"));
     } else {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user_id");
-    localStorage.removeItem("username");
- }
+      localStorage.removeItem("token");
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("username");
+    }
 
   };
 
@@ -43,25 +43,25 @@ class Login extends React.Component {
       <div>
 
         <form onSubmit={this.handleLogin}>
-          <label htmlFor = "username">Account</label>
-            <input
-              type="text"
-              name="username"
-              placeholder="username"
-              value={this.state.credentials.username}
-              onChange={this.handleChange}
-            />
+          <label htmlFor="username">Account</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="username"
+            value={this.state.credentials.username}
+            onChange={this.handleChange}
+          />
           <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="********"
-              value={this.state.credentials.password}
-              onChange={this.handleChange}
-            />
+          <input
+            type="password"
+            name="password"
+            placeholder="********"
+            value={this.state.credentials.password}
+            onChange={this.handleChange}
+          />
           <button>
             {this.props.isLoggingIn ?
-              <Loader className = "section" type="ThreeDots" color="blue" height="60" width="80" />
+              <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
               :
               "Log in"
             }
@@ -86,7 +86,7 @@ const mapStateToProps = state => {
 */
 
 
-const mapStateToProps = ({isLoggingIn, username }) => ({
+const mapStateToProps = ({ isLoggingIn, username }) => ({
   isLoggingIn,
   username,
 
