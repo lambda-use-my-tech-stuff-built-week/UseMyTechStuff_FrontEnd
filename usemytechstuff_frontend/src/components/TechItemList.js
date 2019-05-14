@@ -99,7 +99,7 @@ class TechItemlist extends Component {
             </div>
 
 
-            
+
             <div className = "img-container">
               <img
                 style = { {
@@ -119,7 +119,7 @@ class TechItemlist extends Component {
             <h4 className = "borderFormat" > Category: {techItem.category} </h4>
 
             <h4 className = "borderFormat"> Cost: ${techItem.cost} </h4>
-            <h4 className = "borderFormat"> Availability: {techItem.availability} </h4>
+            <h4 className = "borderFormat"> Availability: {techItem.availability.toString()} </h4>
             <h4 className = "borderFormat" style = {{fontSize: "12px"}}>  Description: {techItem.description} </h4>
 
 
