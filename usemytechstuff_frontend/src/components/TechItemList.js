@@ -99,6 +99,7 @@ class TechItemlist extends Component {
             </div>
 
 
+            
             <div className = "img-container">
               <img
                 style = { {
