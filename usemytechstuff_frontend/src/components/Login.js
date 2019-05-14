@@ -86,11 +86,7 @@ const mapStateToProps = state => {
 */
 
 
-<<<<<<< HEAD
 const mapStateToProps = ({ isLoggingIn, username }) => ({
-=======
-const mapStateToProps = ({isLoggingIn, username }) => ({
->>>>>>> da973e6097ce62b7d61cfded76bf45aa0bbb60ef
   isLoggingIn,
   username,
 
