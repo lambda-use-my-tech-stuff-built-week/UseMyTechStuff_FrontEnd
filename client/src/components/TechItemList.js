@@ -6,7 +6,7 @@ import Loader from 'react-loader-spinner';
 import { getTech } from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
-import { FaBeer } from 'react-icons/fa';
+// import { FaBeer } from 'react-icons/fa';
 
 class TechItemlist extends Component {
 
