@@ -83,12 +83,39 @@ form {
   margin: 4px;
 }
 
+/*
 .img-container {
   border: 1px solid brown;
   margin: 0 auto;
   max-height: 100%;
   display: flex;
 }
+
+.img_item {
+  max-height: 150px;
+  padding: 10px;
+  margin: 0 auto;
+
+}
+
+*/
+
+.img-container {
+  border: 1px solid brown;
+  margin: 0 auto;
+  width: 100%;
+
+}
+
+.img_item {
+  max-height: 150px;
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  display: flex;
+
+}
+
 
 .buttons-container {
   border: 3px solid seagreen;
@@ -99,10 +126,12 @@ form {
 
 .ownerButton {
   background: aliceblue;
+  outline-style: none;
 }
 
 .renterButton {
   background: lightgreen;
+  outline-style: none;
 }
 
 .avail {
