@@ -11,10 +11,10 @@ class Itemlist extends Component {
 
 
 
-    state = {
-      isChecked: true,
+  state = {
+    isChecked: true,
 
-    };
+  };
 
   toggleChange = () => {
     console.log("isChecked is ", this.isChecked);
@@ -66,16 +66,16 @@ class Itemlist extends Component {
             width={150}
           />
         ) : (
-          <Loader
-            type="CradleLoader"
-            height={10}
-            width={10}
-            style={{ border: "4px solid deeppink", margin: "50px" }}
-          />
-        )}
+            <Loader
+              type="CradleLoader"
+              height={10}
+              width={10}
+              style={{ border: "4px solid deeppink", margin: "50px" }}
+            />
+          )}
 
 
-      <h1> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h1>
+        <h1> HEY asdsadasdasdasdasdasddasdsadasdsaasdadsadsdsdsad </h1>
 
       </div>
 
@@ -89,19 +89,13 @@ class Itemlist extends Component {
 
 /*
 const mapStateToProps = ({}) => ({
-
-
 });
-
 export default withRouter(
   connect(
     mapStateToProps,
     {}
-
   )(Itemlist)
-
 );
-
 */
 
 export default Itemlist;

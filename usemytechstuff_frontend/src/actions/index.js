@@ -18,7 +18,7 @@ export const login = creds => dispatch => {
     .then(res => {
       // local storage stores token passed in
       console.log('response.data is >> ', res.data);
-  //    localStorage.setItem("token", res.data.payload);
+      //    localStorage.setItem("token", res.data.payload);
       localStorage.setItem('token', res.data.token);        // added
       localStorage.setItem('user_id', res.data.user_id);    // added
       localStorage.setItem('username', res.data.username);    // Just added , not showing up !!!
@@ -28,10 +28,10 @@ export const login = creds => dispatch => {
       console.log("login err: ", err);
       if (err.response.status === 403) {
         localStorage.removeItem("token");
-   //     localStorage.removeItem("user_id");
+        //     localStorage.removeItem("user_id");
       }
-     //    dispatch({ type: LOGIN_RESOLVED });
-      dispatch({ type: ERROR});                       // JUST added
+      //    dispatch({ type: LOGIN_RESOLVED });
+      dispatch({ type: ERROR });                       // JUST added
     });
 };
 
@@ -39,7 +39,7 @@ export const getTech = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios // NOTICE DIFFERENT ENDPOINT !!!!!
     .get(`https://usemytechstuff.herokuapp.com/api/tech`,
-      {headers: { Authorization: localStorage.getItem("token") }})
+      { headers: { Authorization: localStorage.getItem("token") } })
     .then(res => {
       console.log(" >>>>this is res  ", res);
       dispatch({
@@ -55,4 +55,3 @@ export const getTech = () => dispatch => {
       dispatch({ type: ERROR, payload: err.response });
     });
 };
-
