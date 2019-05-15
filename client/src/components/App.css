@@ -100,19 +100,21 @@ form {
 
 */
 
+
+
 .img-container {
   border: 1px solid brown;
-  margin: 0 auto;
+/*  margin: 0 auto; */
   width: 100%;
 
 }
 
 .img_item {
-  max-height: 150px;
+  max-height: 380px;
   width: 90%;
   padding: 10px;
   margin: 0 auto;
-  display: flex;
+/*  display: flex;  */
 
 }
 
