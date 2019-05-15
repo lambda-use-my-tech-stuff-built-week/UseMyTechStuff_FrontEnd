@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
+import { getUsers } from '../actions';
 
 class User extends Component {
 
@@ -13,27 +13,24 @@ class User extends Component {
     return (
       <div className='user-wrapper'>
         <h2>Techies</h2>
-        {this.props.users.fetchingUsers && (<Loader type="Ball-Triangle" color="#00BFFF" height="90" width="60" />)}
-        <div className='user-card'>
-          <h3>Username: {this.props.username}</h3>
-          <p>Password: {this.props.password}</p>
-          <p>Email: {this.props.email}</p>
-          <p>First Name: {this.props.firstname}</p>
-          <p>Last Name: {this.props.lastname}</p>
-        </div>
+        {this.props.users.map((user, id) => (
+          <div className='user-card'>
+            <h3>Username: {users.username}</h3>
+            <p>Password: {users.password}</p>
+            <p>Email: {users.email}</p>
+          </div>
+        ))}
       </div>
     )
   }
 };
 
-const mapStateToProps = ({ techUsers, fetchingUsers }) => ({
-  techUsers,
+const mapStateToProps = ({ users, fetchingUsers }) => ({
+  users,
   fetchingUsers,
-
-
 });
 
 export default connect(
   mapStateToProps,
-  { signUp }
+  { getUsers }
 )(User);

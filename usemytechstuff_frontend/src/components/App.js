@@ -21,12 +21,12 @@ function App() {
           <li>
             <Link to="/protected">Protected Page</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/signupform">Sign Up</Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/user">Techies</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <Route
@@ -35,8 +35,8 @@ function App() {
         render={props => <Login {...props} isLoggingIn={false} />}
       />
       <PrivateRoute exact path="/protected" component={TechItemlist} />
-      {/* <PrivateRoute exact path="/user" component={User} />
-      <Route
+      {/* <Route path="/user" component={User} /> */}
+      {/* <Route
         path='/signupform' component={SignUpForm} /> */}
     </Router>
 

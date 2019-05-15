@@ -7,10 +7,8 @@ class SignUpForm extends Component {
   state = {
     newUser: {
       username: "",
-      email: "",
       password: "",
-      firstname: "",
-      lastname: "",
+      email: "",
     }
   }
 
@@ -40,8 +38,6 @@ class SignUpForm extends Component {
       newUser: {
         username: "",
         password: "",
-        firstname: "",
-        lastname: "",
         email: "",
       }
     })
@@ -58,8 +54,6 @@ class SignUpForm extends Component {
                 username={user.username}
                 password={user.password}
                 email={user.email}
-                firstname={user.firstname}
-                lastname={user.lastname}
                 key={user.id}
               />
             )
@@ -68,25 +62,28 @@ class SignUpForm extends Component {
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Sign Up</h5>
           <div className="input-field">
-            <label htmlFor="firstname">First Name</label>
+            <label
+              htmlFor="username">Create a Username</label>
             <input
               type="text"
-              name="firstname"
-              value={this.state.newUser.firstName}
+              name="username"
+              value={this.state.newUser.userName}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="lastname">Last Name</label>
+            <label
+              htmlFor="password">Create a Password</label>
             <input
               type="text"
-              name="lastname"
-              value={this.state.newUser.lastName}
+              name="password"
+              value={this.state.newUser.password}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
+            <label
+              htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
