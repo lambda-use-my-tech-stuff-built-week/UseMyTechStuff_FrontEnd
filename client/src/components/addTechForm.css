@@ -1,0 +1,45 @@
+.addTechItem-container {
+  border: 4px solid yellowgreen;
+  width: 80%;
+  display: flex;
+  margin: 10px 0;
+  justify-content: center;
+
+}
+
+.addTechItemForm {
+
+  width: 90%;
+  display: flex;
+
+}
+
+
+
+.buttonContainer {
+  border: 3px solid lightskyblue;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.addTechItemButton {
+  border: 3px solid cornflowerblue;
+  color: black;
+  background: lightskyblue;
+  border-radius: 5px;
+  outline-style: none;
+  padding: 5px;
+  margin: 2px;
+  font-size: 14px;
+}
+
+
+.techFormInputs {
+  border: 3px solid navy;
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
