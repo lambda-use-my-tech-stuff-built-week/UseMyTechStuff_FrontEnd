@@ -54,9 +54,16 @@ class TechItemlist extends Component {
 
             </div>
 
-            <button
-              className = "logoutButton"
-            > Logout </button>
+            <div className = "logoutButton-container">
+              <button
+                className = "logoutButton"
+              > Logout </button>
+
+
+            </div>
+
+
+
           </div>
 
         }

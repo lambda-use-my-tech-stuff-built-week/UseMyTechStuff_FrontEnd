@@ -100,6 +100,10 @@ h5, h6 {
   justify-content: center;
 }
 
+.logoutButton-container {
+  border: 1px solid orangered;
+  display: flex;
+}
 
 .logoutButton {
   outline-style: none;
@@ -108,7 +112,6 @@ h5, h6 {
   margin: 10px;
   border: 1px solid dodgerblue;
   background: aliceblue;
-  width: 10%;
   font-size: 16px;
 }
 
@@ -118,6 +121,7 @@ h5, h6 {
   font-weight: bold;
 
 }
+
 
 
 

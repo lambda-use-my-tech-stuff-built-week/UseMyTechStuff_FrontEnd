@@ -53,6 +53,7 @@ class AddTechForm extends Component {
           onSubmit = {this.handleSubmit}
         >
 
+
           <div className = "buttonContainer">
 
             <button
@@ -61,42 +62,55 @@ class AddTechForm extends Component {
           </div>
 
 
-          <div className = "techFormInputs">
-            <input
-              value = {this.state.name}
-              name = "name"
-              type = "text"
-              placeholder = "name"
-              onChange={this.handleChange}
-            />
-            <input
-              value = {this.state.category}
-              name = "category"
-              type = "text"
-              placeholder = "category"
-              onChange={this.handleChange}
-            />
-            <input
-              value = {this.state.description}
-              name = "description"
-              type = "text"
-              placeholder = "description"
-              onChange={this.handleChange}
-            />
-            <input
-              value = {this.state.picture}
-              name = "picture"
-              type = "text"
-              placeholder = "picture"
-              onChange={this.handleChange}
-            />
-            <input
-              value = {this.state.cost}
-              name = "cost"
-              type = "text"
-              placeholder = "cost"
-              onChange={this.handleChange}
-            />
+          <div className = "boxy">
+
+            <div className = "techFormInputs">
+              <input
+                className= "addInputFieldName"
+                value = {this.state.name}
+                name = "name"
+                type = "text"
+                placeholder = "name"
+                onChange={this.handleChange}
+              />
+              <input
+                className= "addInputField"
+                value = {this.state.category}
+                name = "category"
+                type = "text"
+                placeholder = "category"
+                onChange={this.handleChange}
+              />
+
+
+              <input
+                className= "addInputField"
+                value = {this.state.cost}
+                name = "cost"
+                type = "text"
+                placeholder = "cost"
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className= "addTextAreaField" >
+              <textarea
+                value = {this.state.picture}
+                name = "picture"
+                placeholder = "picture"
+                onChange={this.handleChange}
+              />
+            </div>
+
+
+            <div className = "addTextAreaField">
+               <textarea
+                 value = {this.state.description}
+                  name = "description"
+                  placeholder = "description"
+                  onChange={this.handleChange}
+               />
+            </div>
 
           </div>
 
