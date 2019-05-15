@@ -46,7 +46,7 @@ export const signUpReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingUsers: false,
-        techUsers: action.payload,
+        users: action.payload,
         error: null
       };
 
