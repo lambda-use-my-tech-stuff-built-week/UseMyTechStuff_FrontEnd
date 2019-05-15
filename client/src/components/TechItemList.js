@@ -28,8 +28,6 @@ class TechItemlist extends Component {
   // handlers
 
 
-  // <button className = "renterButton" > Rent Item </button>
-
   render() {
 
     console.log("HEY");
@@ -40,25 +38,37 @@ class TechItemlist extends Component {
         {this.props.techItems.fetchingData ?
           <Loader className="section" type="Rings" color="deeppink" height="360" width="380" />
           :
-          <h3 className = "title"> TechItems for Rent !</h3>
+          <div className = "navbar-container">
+            <div className = "userNameHere">
+              <h5> username HERE!!  </h5>
+            </div>
+
+            <div className = "searchText">
+                <input
+                  type="text"
+                  name="tech"
+                  placeholder="search for used tech!"
+                />
+
+            </div>
+
+            <button
+              className = "logoutButton"
+            > Logout </button>
+          </div>
+
         }
 
-        <div
-          style={{
-            border: "5px solid blue",
-            width: "75%",
-            backgroundColor: "ivory",
-            margin: "0 auto",
-            color: "black",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-evenly",
-            padding: "50px",
-          }}
-        >
+        <div className = "addTechItem-container">
+          <h5> Add some "new" user tech !</h5>
+        </div>
 
 
 
+
+
+        <div className = "techItemsList-container">
+          <h3 className = "title"> TechItems for Rent !</h3>
 
           {this.props.techItems.techItems.map((techItem, id) => (
             <div key={id}
