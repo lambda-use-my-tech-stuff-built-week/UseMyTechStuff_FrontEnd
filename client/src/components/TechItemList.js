@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Loader from 'react-loader-spinner';
+import AddTechForm from './AddTechForm';
+
 
 import { getTech } from '../actions';
 import { connect } from 'react-redux';
@@ -52,16 +54,23 @@ class TechItemlist extends Component {
 
             </div>
 
-            <button
-              className = "logoutButton"
-            > Logout </button>
+            <div className = "logoutButton-container">
+              <button
+                className = "logoutButton"
+              > Logout </button>
+
+
+            </div>
+
+
+
           </div>
 
         }
 
-        <div className = "addTechItem-container">
-          <h5> Add some "new" user tech !</h5>
-        </div>
+
+          <AddTechForm/>
+
 
 
 
