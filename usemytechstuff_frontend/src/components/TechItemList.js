@@ -101,13 +101,7 @@ class TechItemlist extends Component {
 
 
             <div className = "img-container">
-              <img
-                style = { {
-                  maxHeight: "150px",
-                  padding: "10px",
-                  margin: "0 auto",
-                } }
-
+              <img className = "img_item"
                 src =  {techItem.picture} alt = "alt-img"
               />
             </div>
