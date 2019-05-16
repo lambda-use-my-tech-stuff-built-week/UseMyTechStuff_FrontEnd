@@ -83,26 +83,14 @@ class TechItemlist extends Component {
               <button
                 className = "logoutButton"
                 onClick = { () => this.handleLogout()}
-
-
               > Logout </button>
-
-
             </div>
-
-
 
           </div>
 
         }
 
-
         <AddTechForm/>
-
-
-
-
-
 
         <div className = "techItemsList-container">
           <h3 className = "title"> TechItems for Rent !</h3>
@@ -143,14 +131,22 @@ class TechItemlist extends Component {
               </div>
 
 
-
-
               <div className = "img-container">
                 <img className = "img_item"
                      src =  {techItem.picture} alt = "alt-img"
-
                 />
               </div>
+
+
+              {Number(localStorage.getItem('user_id')) !== techItem.user_id
+                ? <div>
+
+                  <button className = "askQuestionButton"> Ask {techItem.user} a question </button>
+                  <button className = "rateButton"> Rate {techItem.user} </button>
+
+                </div>
+                : null
+              }
 
 
               <h3 className="borderFormat"> Owner: {techItem.user} </h3>
@@ -162,12 +158,10 @@ class TechItemlist extends Component {
               <h4 className="borderFormat"> Availability: {techItem.availability.toString()} </h4>
               <h4 className="borderFormat" style={{ fontSize: "12px" }}>  Description: {techItem.description} </h4>
 
-
             </div>
           ))}
 
         </div>
-
 
       </div>
 
