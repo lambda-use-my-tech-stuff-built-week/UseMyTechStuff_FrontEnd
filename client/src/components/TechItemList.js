@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner';
 import AddTechForm from './AddTechForm';
 
 
-import { getTech } from '../actions';
+import { getTech, deleteTech } from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 // import { FaBeer } from 'react-icons/fa';
@@ -28,6 +28,17 @@ class TechItemlist extends Component {
   }
 
   // handlers
+  handleDelete = (e, id) => {
+    e.preventDefault();
+    this.props.deleteTech(id);
+
+  };
+
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("username");
+  };
 
 
   render() {
@@ -57,6 +68,9 @@ class TechItemlist extends Component {
             <div className = "logoutButton-container">
               <button
                 className = "logoutButton"
+                onClick = { () => this.handleLogout()}
+
+
               > Logout </button>
 
 
@@ -89,7 +103,12 @@ class TechItemlist extends Component {
 
               <div className="buttons-container">
                 {Number(localStorage.getItem('user_id')) === techItem.user_id
-                  ? <button className="ownerButton"> Delete Item </button>
+                  ? <button
+                    className="ownerButton"
+                    onClick = { (e) => this.handleDelete(e, techItem.id)}
+
+
+                    > Delete Item </button>
 
                   : techItem.availability
                     ? <h3 className="borderFormat avail"> Available </h3>
@@ -143,9 +162,12 @@ class TechItemlist extends Component {
 }
 
 
-const mapStateToProps = ({ techItems, fetchingData }) => ({
+const mapStateToProps = ({ techItems, fetchingData, addingTech, deletingTech }) => ({
   techItems,
   fetchingData,
+  addingTech,
+  deletingTech,
+
 
 
 
@@ -154,7 +176,7 @@ const mapStateToProps = ({ techItems, fetchingData }) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { getTech }
+    { getTech, deleteTech }
 
   )(TechItemlist)
 
