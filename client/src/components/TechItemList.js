@@ -5,9 +5,10 @@ import Loader from 'react-loader-spinner';
 import AddTechForm from './AddTechForm';
 
 
-import { getTech, deleteTech } from '../actions';
+import {getTech, deleteTech, DELETE_TECH, ERROR} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 // import { FaBeer } from 'react-icons/fa';
 
 class TechItemlist extends Component {
@@ -29,8 +30,20 @@ class TechItemlist extends Component {
 
   // handlers
   handleDelete = (e, id) => {
-    e.preventDefault();
-    this.props.deleteTech(id);
+   e.preventDefault();
+ //   this.props.deleteTech(id);
+
+    axios
+      .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
+        {headers: { Authorization: localStorage.getItem("token") }
+        })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err =>{                // err
+       console.log(err);
+      })
+    this.props.getTech();
 
   };
 
@@ -106,7 +119,7 @@ class TechItemlist extends Component {
                 {Number(localStorage.getItem('user_id')) === techItem.user_id
                   ? <button
                     className="ownerButton"
-                    onClick = { (e) => this.handleDelete(e, techItem.id)}
+                     onClick = { (e) => this.handleDelete( e, techItem.id)}
 
 
                     > Delete Item </button>

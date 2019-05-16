@@ -50,6 +50,7 @@ h5, h6 {
 .borderFormat {
   border: 1px solid pink;
   margin: 4px;
+  display: flex;
 }
 
 

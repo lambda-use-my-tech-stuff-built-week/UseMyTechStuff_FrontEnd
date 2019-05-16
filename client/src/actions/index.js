@@ -91,6 +91,7 @@ export const deleteTech = (id) => dispatch => {
       {headers: { Authorization: localStorage.getItem("token") }
       })
     .then(res => {
+      console.log(res);
       dispatch({
         type: DELETE_TECH,
         payload: res.data
@@ -100,3 +101,4 @@ export const deleteTech = (id) => dispatch => {
       dispatch({type: ERROR, payload: err.response});
     })
 };
+
