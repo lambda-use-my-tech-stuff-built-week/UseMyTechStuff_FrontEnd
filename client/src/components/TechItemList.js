@@ -169,8 +169,6 @@ const mapStateToProps = ({ techItems, fetchingData, addingTech, deletingTech }) 
   deletingTech,
 
 
-
-
 });
 
 export default withRouter(
