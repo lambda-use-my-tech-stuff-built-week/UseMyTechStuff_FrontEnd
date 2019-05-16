@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { addUser, getUsers } from '../actions/signUp';
-import { User } from './User';
+import { addUser, getUsers } from '../actions/SignUp';
+import UserList from './UserList';
 
 class SignUpForm extends Component {
   state = {
+    users: [],
     newUser: {
       username: "",
       password: "",
@@ -30,8 +31,8 @@ class SignUpForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addUser(this.state.newUser)
-      .then(() =>
-        this.props.history.push("/users"))
+    // .then(() =>
+    //   this.props.history.push("/users"))
     console.log(this.state);
 
     this.setState({
@@ -48,16 +49,16 @@ class SignUpForm extends Component {
     return (
       <div className="container">
         <div>
-          {this.props.users.map(user => {
+          {/* {this.props.users.map(user => {
             return (
-              <User
+              <UserList
                 username={user.username}
                 password={user.password}
                 email={user.email}
                 key={user.id}
               />
             )
-          })}
+          })} */}
         </div>
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Sign Up</h5>
@@ -102,8 +103,9 @@ class SignUpForm extends Component {
 
 const mapStateToProps = state => {
   return {
+    users: state.users,
+    fetchingUsers: state.fetchingUsers,
     addingUser: state.addingUser,
-    fetchingUsers: state.fetchingUsers
   }
 }
 

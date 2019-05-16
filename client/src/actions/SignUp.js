@@ -12,7 +12,9 @@ export const ADD_USER_FAILURE = 'ADD_USER_FAILURE'
 export const getUsers = () => dispatch => {
   dispatch({ type: FETCH_USERS_START });
   axios
-    .get(`https://usemytechstuff.herokuapp.com/api/users`)
+    .get(`https://usemytechstuff.herokuapp.com/api/users`,
+      { headers: { Authorization: localStorage.getItem("token") } }
+    )
     .then(res => {
       dispatch({
         type: FETCH_USERS_SUCCESS,
@@ -25,11 +27,14 @@ export const getUsers = () => dispatch => {
     });
 };
 
-export const addUser = () => dispatch => {
+export const addUser = newUser => dispatch => {
   dispatch({ type: CREATE_USER_START });
   axios
-    .post('https://usemytechstuff.herokuapp.com/api/users')
+    .post('https://usemytechstuff.herokuapp.com/api/auth/register', newUser)
     .then(res => {
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user_id', res.data.user_id);
+      localStorage.setItem('username', res.data.username);
       dispatch({ type: ADD_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
