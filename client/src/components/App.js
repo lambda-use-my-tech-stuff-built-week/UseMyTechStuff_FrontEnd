@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./Login";               // UNCOMMENTED
 import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
 import TechItemlist from "./TechItemList";
-// import SignUpForm from './SignUpForm';
-// import User from './User';
+import SignUpForm from './SignUpForm';
+import UserList from './UserList';
 
 function App() {
   return (
@@ -21,12 +21,12 @@ function App() {
           <li>
             <Link to="/protected">Protected Page</Link>
           </li>
-          {/* <li>
+          <li>
             <Link to="/signupform">Sign Up</Link>
-          </li> */}
-          {/* <li>
-            <Link to="/user">Techies</Link>
-          </li> */}
+          </li>
+          <li>
+            <Link to="/users">Techies</Link>
+          </li>
         </ul>
       </div>
       <Route
@@ -35,9 +35,11 @@ function App() {
         render={props => <Login {...props} isLoggingIn={false} />}
       />
       <PrivateRoute exact path="/protected" component={TechItemlist} />
-      {/* <Route path="/user" component={User} /> */}
-      {/* <Route
-        path='/signupform' component={SignUpForm} /> */}
+      <Route
+        path='/signupform'
+        render={props => <SignUpForm {...props} addingUser={false} />}
+      />
+      <Route exact path="/users" component={UserList} />
     </Router>
 
   );

@@ -9,12 +9,15 @@ import {
 
 const initialState = {
   users: [],
+  user_id: '',
+  username: '',
   fetchingUsers: false,
   addingUser: false,
   error: null
 }
 
 export const signUpReducer = (state = initialState, action) => {
+  console.log('signUpReducer', action);
   switch (action.type) {
     case CREATE_USER_START:
       return {
@@ -25,7 +28,10 @@ export const signUpReducer = (state = initialState, action) => {
     case ADD_USER_SUCCESS:
       return {
         addingUser: false,
-        items: action.payload,
+        name: action.payload.name,
+        user_id: action.payload.user_id,
+        username: action.payload.username,
+        users: action.payload,
         error: null
       };
 
@@ -39,6 +45,7 @@ export const signUpReducer = (state = initialState, action) => {
     case FETCH_USERS_START:
       return {
         ...state,
+        error: '',
         fetchingUsers: true
       };
 
@@ -46,6 +53,7 @@ export const signUpReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingUsers: false,
+        addingUser: false,
         users: action.payload,
         error: null
       };
