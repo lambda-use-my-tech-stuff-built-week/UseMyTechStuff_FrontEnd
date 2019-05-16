@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Login from "../Login";
 import PrivateRoute from "../PrivateRoute";
 import ItemList from '../ItemList';
-import TechItemList from '../TechItemList';
+import TechItemList from '../TechItemList_broke';
 
 
 

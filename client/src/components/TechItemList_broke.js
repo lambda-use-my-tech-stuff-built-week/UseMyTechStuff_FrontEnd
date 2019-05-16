@@ -3,6 +3,7 @@ import './App.css';
 
 import Loader from 'react-loader-spinner';
 import AddTechForm from './AddTechForm';
+import TechItem from './TechItem';
 
 
 import {getTech, deleteTech, DELETE_TECH, ERROR} from '../actions';
@@ -11,7 +12,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 // import { FaBeer } from 'react-icons/fa';
 
-class TechItemlist extends Component {
+class TechItemList_broke extends Component {
 
 
   /*
@@ -21,7 +22,7 @@ class TechItemlist extends Component {
         isChecked: !this.state.isChecked
       });
     };
-
+  
   */
 
   componentDidMount() {
@@ -30,8 +31,8 @@ class TechItemlist extends Component {
 
   // handlers
   handleDelete = (e, id) => {
-    e.preventDefault();
-    //   this.props.deleteTech(id);
+   e.preventDefault();
+ //   this.props.deleteTech(id);
 
     axios
       .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
@@ -41,8 +42,8 @@ class TechItemlist extends Component {
         console.log(res);
       })
       .catch(err =>{                // err
-        console.log(err);
-      })
+       console.log(err);
+      });
     this.props.getTech();
 
   };
@@ -62,6 +63,7 @@ class TechItemlist extends Component {
     return (
       <div className = "techItemsListPage">
 
+
         {this.props.techItems.fetchingData ?
           <Loader className="section" type="Rings" color="deeppink" height="360" width="380" />
           :
@@ -71,99 +73,35 @@ class TechItemlist extends Component {
             </div>
 
             <div className = "searchText">
-              <input
-                type="text"
-                name="tech"
-                placeholder="search for used tech!"
-              />
-
+                <input
+                  type="text"
+                  name="tech"
+                  placeholder="search for used tech!"
+                />
             </div>
 
             <div className = "logoutButton-container">
               <button
                 className = "logoutButton"
                 onClick = { () => this.handleLogout()}
-
-
               > Logout </button>
-
-
             </div>
-
-
-
           </div>
 
         }
 
-
         <AddTechForm/>
-
-
-
-
 
 
         <div className = "techItemsList-container">
           <h3 className = "title"> TechItems for Rent !</h3>
 
           {this.props.techItems.techItems.map((techItem, id) => (
-            <div key={id}
-                 style={{
-                   border: "1px solid red",
-                   margin: "2px",
-                   width: "30%",
-                 }}     >
-
-              <div className="buttons-container">
-                {Number(localStorage.getItem('user_id')) === techItem.user_id
-                  ? <button
-                    className="ownerButton"
-                    onClick = { (e) => this.handleDelete( e, techItem.id)}
-
-
-                  > Delete Item </button>
-
-                  : techItem.availability
-                    ? <h3 className="borderFormat avail"> Available </h3>
-                    : <h3 className="borderFormat rented"> Rented </h3>
-                }
-
-
-                {Number(localStorage.getItem('user_id')) !== techItem.user_id
-                  ? <button className="renterButton" > Rent Item </button>
-                  : null
-                }
-
-
-                {Number(localStorage.getItem('user_id')) === techItem.user_id
-                  ? <button className="ownerButton"> Update Item </button>
-                  : null
-                }
-              </div>
-
-
-
-
-              <div className = "img-container">
-                <img className = "img_item"
-                     src =  {techItem.picture} alt = "alt-img"
-
-                />
-              </div>
-
-
-              <h3 className="borderFormat"> Owner: {techItem.user} </h3>
-              <h4 className="borderFormat" >ID: {techItem.user_id}</h4>
-              <h4 className="borderFormat"  > {techItem.name} </h4>
-              <h4 className="borderFormat" > Category: {techItem.category} </h4>
-
-              <h4 className="borderFormat"> Cost: ${techItem.cost} </h4>
-              <h4 className="borderFormat"> Availability: {techItem.availability.toString()} </h4>
-              <h4 className="borderFormat" style={{ fontSize: "12px" }}>  Description: {techItem.description} </h4>
-
-
-            </div>
+              <TechItem
+                techItem = {techItem}
+                id = {id}
+       //         handleDelete = {this.handleDelete}
+              />
           ))}
 
         </div>
@@ -190,6 +128,6 @@ export default withRouter(
     mapStateToProps,
     { getTech, deleteTech }
 
-  )(TechItemlist)
+  )(TechItemList_broke)
 
 );
