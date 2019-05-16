@@ -124,9 +124,25 @@ h5, h6 {
 }
 
 
+.askQuestionButton {
+  outline-style: none;
+  border-radius: 5px;
+  color: dodgerblue;
+  margin: 10px;
+  border: 1px solid dodgerblue;
+  background: aliceblue;
+  font-size: 16px;
+}
 
-
-
+.rateButton {
+  outline-style: none;
+  border-radius: 5px;
+  color: deeppink;
+  margin: 10px;
+  border: 1px solid dodgerblue;
+  background: aliceblue;
+  font-size: 16px;
+}
 
 
 
