@@ -3,7 +3,7 @@ import './addTechForm.css';
 
 
 import {connect} from 'react-redux';
-import {addTech} from '../actions';
+import {addTech, getTech} from '../actions';
 
 //import {} from './actions';
 
@@ -32,6 +32,7 @@ class AddTechForm extends Component {
     // must fill in ALL fields !!!
     if(name && category && description && category && cost ) {
       this.props.addTech({name, user_id, category, picture, description, cost, availability});
+      this.props.getTech();
       this.setState({
         name: '',
         category: '',
@@ -107,6 +108,7 @@ class AddTechForm extends Component {
                <textarea
                  value = {this.state.description}
                   name = "description"
+                  wrap="hard"
                   placeholder = "description"
                   onChange={this.handleChange}
                />
@@ -131,4 +133,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {addTech})(AddTechForm);
+export default connect(mapStateToProps, {addTech, getTech})(AddTechForm);

@@ -42,7 +42,7 @@ class TechItemlist extends Component {
       })
       .catch(err =>{                // err
         console.log(err);
-      })
+      });
     this.props.getTech();
 
   };
@@ -83,14 +83,8 @@ class TechItemlist extends Component {
               <button
                 className = "logoutButton"
                 onClick = { () => this.handleLogout()}
-
-
               > Logout </button>
-
-
             </div>
-
-
 
           </div>
 
@@ -99,15 +93,13 @@ class TechItemlist extends Component {
 
         <AddTechForm/>
 
-
-
-
-
-
         <div className = "techItemsList-container">
           <h3 className = "title"> TechItems for Rent !</h3>
 
           {this.props.techItems.techItems.map((techItem, id) => (
+
+
+
             <div key={id}
                  style={{
                    border: "1px solid red",
@@ -162,8 +154,12 @@ class TechItemlist extends Component {
               <h4 className="borderFormat"> Availability: {techItem.availability.toString()} </h4>
               <h4 className="borderFormat" style={{ fontSize: "12px" }}>  Description: {techItem.description} </h4>
 
-
             </div>
+
+
+
+
+
           ))}
 
         </div>
