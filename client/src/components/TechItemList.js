@@ -40,6 +40,7 @@ class TechItemlist extends Component {
     localStorage.removeItem("username");
   };
 
+  //    onClick = { (e) => this.handleDelete(e, techItem.id)}
 
   render() {
 

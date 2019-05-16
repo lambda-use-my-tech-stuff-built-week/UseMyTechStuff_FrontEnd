@@ -108,6 +108,7 @@ class AddTechForm extends Component {
                <textarea
                  value = {this.state.description}
                   name = "description"
+                  wrap="hard"
                   placeholder = "description"
                   onChange={this.handleChange}
                />

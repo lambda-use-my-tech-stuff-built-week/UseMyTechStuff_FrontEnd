@@ -87,7 +87,9 @@ export const addTech = (tech) => dispatch => {
 export const deleteTech = (id) => dispatch => {
   dispatch({type: DELETING_TECH});
   axios
-    .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`)
+    .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
+      {headers: { Authorization: localStorage.getItem("token") }
+      })
     .then(res => {
       dispatch({
         type: DELETE_TECH,
