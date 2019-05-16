@@ -7,8 +7,10 @@ import {
   ADDING_TECH,
   ADDED_TECH,
 
+  DELETING_TECH,
+  DELETE_TECH,
 
-  ERROR
+  ERROR,
 
 
 } from "../actions";
@@ -21,8 +23,9 @@ const initialState = {
   error: '',
   fetchingData: false,
   addingTech: false,
+  deletingTech: false,
 
-  token: localStorage.getItem('token'),
+ // token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
@@ -71,11 +74,24 @@ export const itemsReducer = (state = initialState, action) => {
         ...state,
         addingTech: false,
         techItems: action.payload,
-        
 
       };
 
 
+    case DELETING_TECH:
+      return {
+        ...state,
+        deletingTech: true,
+
+      };
+
+    case DELETE_TECH:
+      return {
+        ...state,
+        deletingTech: false,
+        techItems: action.payload,
+
+      };
 
 
     case ERROR:

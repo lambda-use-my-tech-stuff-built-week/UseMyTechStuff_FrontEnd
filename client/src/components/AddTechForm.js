@@ -3,7 +3,7 @@ import './addTechForm.css';
 
 
 import {connect} from 'react-redux';
-
+import {addTech} from '../actions';
 
 //import {} from './actions';
 
@@ -55,10 +55,10 @@ class AddTechForm extends Component {
 
 
           <div className = "buttonContainer">
-
             <button
               className = "addTechItemButton"
-            >Add some "NEW" Tech !!! </button>
+            >Add some "NEW" Tech !!!
+            </button>
           </div>
 
 
@@ -122,14 +122,8 @@ class AddTechForm extends Component {
   }
 }
 
-export default AddTechForm;
 
 
-
-
-
-
-/*
 const mapStateToProps = state => ({
   addingTech: state.addingTech,
   error: state.error,
@@ -138,4 +132,3 @@ const mapStateToProps = state => ({
 
 
 export default connect(mapStateToProps, {addTech})(AddTechForm);
- */
