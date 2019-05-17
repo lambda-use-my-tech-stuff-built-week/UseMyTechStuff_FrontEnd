@@ -3,7 +3,8 @@ import './addTechForm.css';
 
 
 import {connect} from 'react-redux';
-import {addTech, getTech} from '../actions';
+import {addTech, getTech, deleteTech} from '../actions';
+import { withRouter } from "react-router-dom";
 
 //import {} from './actions';
 
@@ -37,9 +38,9 @@ class AddTechForm extends Component {
         name: '',
         category: '',
         description: '',
-  //      picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
+        picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
         cost: '',
-  //      availability: true,
+        availability: false,
       });
     }
 
@@ -128,4 +129,14 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {addTech, getTech})(AddTechForm);
+//export default connect(mapStateToProps, {addTech, getTech})(AddTechForm);
+
+export default withRouter(
+  connect (
+    mapStateToProps,
+    {getTech, addTech, deleteTech} ,
+
+
+  )(AddTechForm)
+
+);

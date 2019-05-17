@@ -6,7 +6,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./Login";               // UNCOMMENTED
 import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
-import TechItemlist from "./TechItemList_ORIG";
+import TechItemList from "./TechItemList";
 import SignUpForm from './SignUpForm';
 import UserList from './UserList';
 
@@ -34,7 +34,7 @@ function App() {
         // component={Login}
         render={props => <Login {...props} isLoggingIn={false} />}
       />
-      <PrivateRoute exact path="/protected" component={TechItemlist} />
+      <PrivateRoute exact path="/protected" component={TechItemList} />
       <Route
         path='/signupform'
         render={props => <SignUpForm {...props} addingUser={false} />}
