@@ -32,7 +32,7 @@ class AddTechForm extends Component {
     // must fill in ALL fields !!!
     if(name && category && description && category && cost ) {
       this.props.addTech({name, user_id, category, picture, description, cost, availability});
-      this.props.getTech();
+      // this.props.getTech();
       this.setState({
         name: '',
         category: '',
@@ -54,14 +54,12 @@ class AddTechForm extends Component {
           onSubmit = {this.handleSubmit}
         >
 
-
           <div className = "buttonContainer">
             <button
               className = "addTechItemButton"
             >Add some "NEW" Tech !!!
             </button>
           </div>
-
 
           <div className = "boxy">
 
@@ -83,7 +81,6 @@ class AddTechForm extends Component {
                 onChange={this.handleChange}
               />
 
-
               <input
                 className= "addInputField"
                 value = {this.state.cost}
@@ -103,7 +100,6 @@ class AddTechForm extends Component {
               />
             </div>
 
-
             <div className = "addTextAreaField">
                <textarea
                  value = {this.state.description}
@@ -113,7 +109,6 @@ class AddTechForm extends Component {
                   onChange={this.handleChange}
                />
             </div>
-
           </div>
 
         </form>
