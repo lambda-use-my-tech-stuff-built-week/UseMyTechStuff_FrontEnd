@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 
 import './App.css';
-
+import {deleteTech} from "../actions";
+import {connect} from 'react-redux';
 
 class TechItem extends Component {
 
 
   handleDelete = (e, id) => {
+   console.log(">>>>>>>>>>>>>>>>>>> deleting");
     e.preventDefault();
     this.props.deleteTech(id);
   };
@@ -27,7 +29,7 @@ class TechItem extends Component {
           {Number(localStorage.getItem('user_id')) === techItem.user_id
             ? <button
               className="ownerButton"
-              onClick = { (e) => this.handleDelete( e, techItem.id)}
+              onClick = { (e) => this.handleDelete( e, id)}
             > Delete Item</button>
 
             : techItem.availability
@@ -81,4 +83,9 @@ class TechItem extends Component {
 
 }
 
-export default TechItem;
+export default connect(
+  null, {deleteTech}
+)
+
+
+(TechItem);

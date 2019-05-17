@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner';
 import AddTechForm from './AddTechForm';
 import TechItem from './TechItem';
 
-import {getTech, deleteTech, DELETE_TECH, ERROR} from '../actions';
+import {getTech, deleteTech, addTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import axios from "axios";
@@ -39,11 +39,13 @@ class TechItemList extends Component {
         })
       .then(res => {
         console.log(res);
+        this.props.getTech();
       })
       .catch(err =>{                // err
         console.log(err);
-      })
-    this.props.getTech();
+      });
+
+   // this.props.getTech();
 
   };
 
@@ -104,7 +106,7 @@ class TechItemList extends Component {
         <div className = "techItemsList-container">
           <h3 className = "title"> TechItems for Rent !</h3>
 
-          {this.props.techItems.techItems.map((techItem, id) => (
+          {this.props.techItems.techItems.map(({techItem, id}) => (
             <TechItem techItem = {techItem} id = {id} />
           ))}
 
@@ -115,9 +117,10 @@ class TechItemList extends Component {
 }
 
 
-const mapStateToProps = ({ techItems, fetchingData, deletingTech }) => ({
+const mapStateToProps = ({ techItems, fetchingData, addingTech, deletingTech }) => ({
   techItems,
   fetchingData,
+  addingTech,
   deletingTech,
 
 });
@@ -126,7 +129,7 @@ const mapStateToProps = ({ techItems, fetchingData, deletingTech }) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { getTech, deleteTech }
+    { getTech, addTech,  deleteTech }
 
   )(TechItemList)
 

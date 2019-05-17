@@ -25,7 +25,7 @@ const initialState = {
   addingTech: false,
   deletingTech: false,
 
- // token: localStorage.getItem('token'),
+  token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
