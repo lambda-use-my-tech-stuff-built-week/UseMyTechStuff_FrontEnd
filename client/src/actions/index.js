@@ -13,6 +13,10 @@ export const ADDED_TECH = "ADDING_TECH";
 export const DELETING_TECH = "DELETING_TECH";
 export const DELETE_TECH = "DELETE_TECH";
 
+export const UPDATING_TECH = "UPDATING_TECH";
+export const UPDATE_TECH = "UPDATE_TECH";
+
+
 // generic action type for any error
 export const ERROR = "ERROR";
 
@@ -97,6 +101,24 @@ export const deleteTech = (id) => dispatch => {
       console.log(res);
       dispatch({
         type: DELETE_TECH,
+        payload: res.data
+      });
+    })
+    .catch(err =>{                // err
+      dispatch({type: ERROR, payload: err.response});
+    })
+};
+
+export const updateTech = (id, tech) => dispatch => {
+  dispatch({type: UPDATING_TECH});
+  axios
+    .put(`https://usemytechstuff.herokuapp.com/api/tech/${id}`, tech,
+      {headers: { Authorization: localStorage.getItem("token") }
+      })
+    .then(res => {
+      console.log(res);
+      dispatch({
+        type: UPDATE_TECH,
         payload: res.data
       });
     })
