@@ -112,7 +112,7 @@ export const itemsReducer = (state = initialState, action) => {
 
       };
 
-      
+
 
     case ERROR:
       return {

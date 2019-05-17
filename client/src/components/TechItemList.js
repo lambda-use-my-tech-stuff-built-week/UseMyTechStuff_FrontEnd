@@ -55,10 +55,14 @@ class TechItemlist extends Component {
 
   };
 
-  handleUpdate  = (e, id) => [
+  handleUpdate  = (e, id, tech) => {
+
+    const {name, user_id, category, picture, description, cost, availability} = this.state;
+
+
     e.preventDefault();
-    this.props.deleteTech(id);
-  ]
+    this.props.updateTech(id, tech);
+  };
 
 
 
@@ -133,7 +137,7 @@ class TechItemlist extends Component {
 
               {Number(localStorage.getItem('user_id')) === techItem.user_id
                 ? <button
-                  onClick = { (e) => this.updateTech(techItem.id)}
+                  onClick = { (e) => this.handleUpdate(techItem.id, techItem)}
                   className = "ownerButton"> Update Item </button>
                 : null
               }
