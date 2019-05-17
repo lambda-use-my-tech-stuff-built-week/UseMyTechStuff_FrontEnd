@@ -10,6 +10,10 @@ import {
   DELETING_TECH,
   DELETE_TECH,
 
+  UPDATING_TECH,
+  UPDATE_TECH,
+
+
   ERROR,
 
 
@@ -25,7 +29,7 @@ const initialState = {
   addingTech: false,
   deletingTech: false,
 
-  token: localStorage.getItem('token'),
+ // token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
@@ -73,7 +77,7 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         addingTech: false,
-        techItems: action.payload,
+        techItems: [...state.techItems, {...action.payload}],
 
       };
 
@@ -92,6 +96,22 @@ export const itemsReducer = (state = initialState, action) => {
         techItems: action.payload,
 
       };
+
+    case UPDATING_TECH:
+      return {
+        ...state,
+        deletingTech: true,
+
+      };
+
+    case UPDATE_TECH:
+      return {
+        ...state,
+        addingTech: false,
+        techItems: [...state.techItems, {...action.payload}],
+
+      };
+
 
 
     case ERROR:

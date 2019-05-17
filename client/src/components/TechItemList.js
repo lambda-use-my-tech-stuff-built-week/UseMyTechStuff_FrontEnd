@@ -3,11 +3,13 @@ import './App.css';
 
 import Loader from 'react-loader-spinner';
 
-import {getTech} from '../actions';
+import {getTech, deleteTech, updateTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
-import { FaBeer } from 'react-icons/fa';
-
+// import { FaBeer } from 'react-icons/fa';
+import AddTechForm from './AddTechForm';
+import axios from "axios";
+;
 class TechItemlist extends Component {
 
 
@@ -26,6 +28,42 @@ class TechItemlist extends Component {
   }
 
   // handlers
+
+/*
+  handleDelete = (e, id) => {
+    console.log(">>>>>>>>>>>>>>>>>>> deleting");
+    e.preventDefault();
+    this.props.deleteTech(id);
+  };
+*/
+
+  handleDelete = (e, id) => {
+    axios
+      .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
+        {headers: { Authorization: localStorage.getItem("token") }
+        })
+      .then(res => {
+        console.log(res);
+   //     dispatch({
+   //       type: DELETE_TECH,
+   //       payload: res.data
+   //     });
+      })
+      .catch(err =>  { console.log(">>>>>>>  ERROR  delete");               // err
+   //     dispatch({type: ERROR, payload: err.response});
+      })
+
+  };
+
+  handleUpdate  = (e, id, tech) => {
+
+    const {name, user_id, category, picture, description, cost, availability} = this.state;
+
+
+    e.preventDefault();
+    this.props.updateTech(id, tech);
+  };
+
 
 
 // <button className = "renterButton" > Rent Item </button>
@@ -49,6 +87,12 @@ class TechItemlist extends Component {
         } }
       >
 
+
+
+
+        <AddTechForm/>
+
+
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
@@ -65,9 +109,6 @@ class TechItemlist extends Component {
           > TechItems for Rent !</h3>
         }
 
-
-        <h2> </h2>
-
         {this.props.techItems.techItems.map( (techItem, id ) => (
           <div key = {id}
                style =  {{
@@ -78,7 +119,9 @@ class TechItemlist extends Component {
 
             <div className = "buttons-container">
               {Number(localStorage.getItem('user_id')) === techItem.user_id
-                ? <button className = "ownerButton"> Delete Item </button>
+                ? <button
+                  onClick =  { (e) => this.handleDelete(e, techItem.id)}
+                  className = "ownerButton"> Delete Item </button>
 
                 : techItem.availability
                   ? <h3 className = "borderFormat avail"> Available </h3>
@@ -93,7 +136,9 @@ class TechItemlist extends Component {
 
 
               {Number(localStorage.getItem('user_id')) === techItem.user_id
-                ? <button className = "ownerButton"> Update Item </button>
+                ? <button
+                  onClick = { (e) => this.handleUpdate(techItem.id, techItem)}
+                  className = "ownerButton"> Update Item </button>
                 : null
               }
             </div>
@@ -132,10 +177,11 @@ class TechItemlist extends Component {
 }
 
 
-const mapStateToProps = ({techItems, fetchingData}) => ({
+const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) => ({
   techItems,
   fetchingData,
-
+  deletingTech,
+  updatingTech,
 
 
 });
@@ -143,7 +189,7 @@ const mapStateToProps = ({techItems, fetchingData}) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    {getTech}
+    {getTech, deleteTech, updateTech}
 
   )(TechItemlist)
 
