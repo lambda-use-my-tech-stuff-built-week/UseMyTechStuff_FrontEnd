@@ -25,7 +25,7 @@ const composeEnhancers =
 
 // We pass thunk into applyMiddleware and this sets us up to be able to return
 // functions out of our action creators rather than returning actions
-const enhancer = composeEnhancers(applyMiddleware(thunk, logger));
+const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 const store = createStore(rootReducer, enhancer);
 

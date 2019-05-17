@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addUser, getUsers } from '../actions/SignUp';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import UserList from './UserList';
 
@@ -82,6 +81,7 @@ const Small = styled.div`
   font-size: .87rem;
   font-weight: lighter;
   font-family: Oxygen, sans-serif;
+  text-align: center;
 `
 
 
@@ -127,19 +127,8 @@ class SignUpForm extends Component {
 
   render() {
     return (
+
       <Wrapper>
-        {/* <div>
-          {this.props.users.map(user => {
-            return (
-              <UserList
-                username={user.username}
-                password={user.password}
-                email={user.email}
-                key={user.id}
-              />
-            )
-          })}
-        </div> */}
         <FormWrapper>
           <HTwo>Create Account</HTwo>
           <Form onSubmit={this.handleSubmit}>
@@ -172,7 +161,6 @@ class SignUpForm extends Component {
             </Label>
             <CreatAccount>
               <Button type="submit">Sign Up</Button>
-              <Small><Link to="/login">Have an Account? Login</Link></Small>
             </CreatAccount>
           </Form>
         </FormWrapper>

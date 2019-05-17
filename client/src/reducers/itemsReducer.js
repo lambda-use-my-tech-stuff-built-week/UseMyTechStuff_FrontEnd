@@ -3,7 +3,14 @@ import {
   LOGIN_RESOLVED,
   FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
-  ERROR
+
+  ADDING_TECH,
+  ADDED_TECH,
+
+  DELETING_TECH,
+  DELETE_TECH,
+
+  ERROR,
 
 
 } from "../actions";
@@ -15,7 +22,10 @@ const initialState = {
   isLoggingIn: false,
   error: '',
   fetchingData: false,
-  token: localStorage.getItem('token'),
+  addingTech: false,
+  deletingTech: false,
+
+ // token: localStorage.getItem('token'),
 };
 
 export const itemsReducer = (state = initialState, action) => {
@@ -50,7 +60,38 @@ export const itemsReducer = (state = initialState, action) => {
         isLoggingIn: false,
         techItems: action.payload,
       };
-    //   case FETCH_DATA_FAILURE:
+
+
+    case ADDING_TECH:
+      return {
+        ...state,
+        addingTech: true,
+
+      };
+
+    case ADDED_TECH:
+      return {
+        ...state,
+        addingTech: false,
+        techItems: action.payload,
+
+      };
+
+
+    case DELETING_TECH:
+      return {
+        ...state,
+        deletingTech: true,
+
+      };
+
+    case DELETE_TECH:
+      return {
+        ...state,
+        deletingTech: false,
+        techItems: action.payload,
+
+      };
 
 
     case ERROR:

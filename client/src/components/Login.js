@@ -40,36 +40,52 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = "login-container">
 
-        <form onSubmit={this.handleLogin}>
-          <label htmlFor="username">Account</label>
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="********"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>
-            {this.props.isLoggingIn ?
-              <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
-              :
-              "Log in"
-            }
-          </button>
+        <form   className = "loginForm"  onSubmit={this.handleLogin}>
 
+          <div className = "loginInfo-container">
+
+            <div className = "loginInfo">
+              <label htmlFor="username">Account</label>
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                value={this.state.credentials.username}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className = "loginInfo">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="********"
+                value={this.state.credentials.password}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <button className = "loginButton">
+              {this.props.isLoggingIn ?
+                <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
+                :
+                "Log in"
+              }
+            </button>
+
+          </div>
+
+          <div className = "signUp-container">
+            <h4 className = "signUpTagline">New to Use My Tech Stuff ?</h4>
+            <button className = "signUpButton">  Sign Up !!! </button>
+          </div>
 
 
         </form>
+
       </div>
     );
   }

@@ -7,6 +7,12 @@ export const LOGIN_RESOLVED = "LOGIN_RESOLVED";
 export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 
+export const ADDING_TECH = "ADDING_TECH";
+export const ADDED_TECH = "ADDING_TECH";
+
+export const DELETING_TECH = "DELETING_TECH";
+export const DELETE_TECH = "DELETE_TECH";
+
 // generic action type for any error
 export const ERROR = "ERROR";
 
@@ -55,3 +61,44 @@ export const getTech = () => dispatch => {
       dispatch({ type: ERROR, payload: err.response });
     });
 };
+
+
+export const addTech = (tech) => dispatch => {
+  dispatch({type: ADDING_TECH});
+  axios
+    .post(`https://usemytechstuff.herokuapp.com/api/tech`, tech,
+      {headers: { Authorization: localStorage.getItem("token") }
+      })
+
+    .then(res => {
+      console.log(res);
+      dispatch({
+        type: ADDED_TECH,
+        payload: res.data
+
+      });
+    })
+    .catch(err =>{
+      dispatch({type: ERROR, payload: err});
+    })
+};
+
+
+export const deleteTech = (id) => dispatch => {
+  dispatch({type: DELETING_TECH});
+  axios
+    .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
+      {headers: { Authorization: localStorage.getItem("token") }
+      })
+    .then(res => {
+      console.log(res);
+      dispatch({
+        type: DELETE_TECH,
+        payload: res.data
+      });
+    })
+    .catch(err =>{                // err
+      dispatch({type: ERROR, payload: err.response});
+    })
+};
+

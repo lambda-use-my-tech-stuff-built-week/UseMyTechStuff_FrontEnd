@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Loader from 'react-loader-spinner';
+import AddTechForm from './AddTechForm';
 
-import { getTech } from '../actions';
+
+import {getTech, deleteTech, DELETE_TECH, ERROR} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
-import { FaBeer } from 'react-icons/fa';
+import axios from "axios";
+// import { FaBeer } from 'react-icons/fa';
 
 class TechItemlist extends Component {
 
@@ -18,7 +21,7 @@ class TechItemlist extends Component {
         isChecked: !this.state.isChecked
       });
     };
-  
+
   */
 
   componentDidMount() {
@@ -26,106 +29,139 @@ class TechItemlist extends Component {
   }
 
   // handlers
+  handleDelete = (e, id) => {
+    e.preventDefault();
+    //   this.props.deleteTech(id);
 
+    axios
+      .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
+        {headers: { Authorization: localStorage.getItem("token") }
+        })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err =>{                // err
+        console.log(err);
+      })
+    this.props.getTech();
 
-  // <button className = "renterButton" > Rent Item </button>
+  };
+
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("username");
+  };
+
+  //    onClick = { (e) => this.handleDelete(e, techItem.id)}
 
   render() {
 
     console.log("HEY");
 
     return (
-      <div
-        style={{
-          border: "5px solid blue",
-          width: "75%",
-          backgroundColor: "ivory",
-          margin: "0 auto",
-          color: "black",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-evenly",
-          padding: "50px",
-        }}
-      >
+      <div className = "techItemsListPage">
 
         {this.props.techItems.fetchingData ?
-          <Loader className="section" type="Rings" color="deeppink" height="260" width="280" />
+          <Loader className="section" type="Rings" color="deeppink" height="360" width="380" />
           :
-          <h3
-            style={{
-              width: "75%",
-              border: "1px solid green",
-              fontSize: "40px",
-              margin: "5px auto",
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          > TechItems for Rent !</h3>
+          <div className = "navbar-container">
+            <div className = "userNameHere">
+              <h5> username HERE!!  </h5>
+            </div>
+
+            <div className = "searchText">
+              <input
+                type="text"
+                name="tech"
+                placeholder="search for used tech!"
+              />
+
+            </div>
+
+            <div className = "logoutButton-container">
+              <button
+                className = "logoutButton"
+                onClick = { () => this.handleLogout()}
+              > Logout </button>
+            </div>
+
+          </div>
+
         }
 
+        <AddTechForm/>
 
-        <h2> </h2>
+        <div className = "techItemsList-container">
+          <h3 className = "title"> TechItems for Rent !</h3>
 
-        {this.props.techItems.techItems.map((techItem, id) => (
-          <div key={id}
-            style={{
-              border: "1px solid red",
-              margin: "2px",
-              width: "30%",
-            }}     >
+          {this.props.techItems.techItems.map((techItem, id) => (
+            <div key={id}
+                 style={{
+                   border: "1px solid red",
+                   margin: "2px",
+                   width: "30%",
+                 }}     >
 
-            <div className="buttons-container">
-              {Number(localStorage.getItem('user_id')) === techItem.user_id
-                ? <button className="ownerButton"> Delete Item </button>
+              <div className="buttons-container">
+                {Number(localStorage.getItem('user_id')) === techItem.user_id
+                  ? <button
+                    className="ownerButton"
+                    onClick = { (e) => this.handleDelete( e, techItem.id)}
 
-                : techItem.availability
-                  ? <h3 className="borderFormat avail"> Available </h3>
-                  : <h3 className="borderFormat rented"> Rented </h3>
-              }
+
+                  > Delete Item </button>
+
+                  : techItem.availability
+                    ? <h3 className="borderFormat avail"> Available </h3>
+                    : <h3 className="borderFormat rented"> Rented </h3>
+                }
+
+
+                {Number(localStorage.getItem('user_id')) !== techItem.user_id
+                  ? <button className="renterButton" > Rent Item </button>
+                  : null
+                }
+
+
+                {Number(localStorage.getItem('user_id')) === techItem.user_id
+                  ? <button className="ownerButton"> Update Item </button>
+                  : null
+                }
+              </div>
+
+
+              <div className = "img-container">
+                <img className = "img_item"
+                     src =  {techItem.picture} alt = "alt-img"
+                />
+              </div>
 
 
               {Number(localStorage.getItem('user_id')) !== techItem.user_id
-                ? <button className="renterButton" > Rent Item </button>
+                ? <div>
+
+                  <button className = "askQuestionButton"> Ask {techItem.user} a question </button>
+                  <button className = "rateButton"> Rate {techItem.user} </button>
+
+                </div>
                 : null
               }
 
 
-              {Number(localStorage.getItem('user_id')) === techItem.user_id
-                ? <button className="ownerButton"> Update Item </button>
-                : null
-              }
+              <h3 className="borderFormat"> Owner: {techItem.user} </h3>
+              <h4 className="borderFormat" >ID: {techItem.user_id}</h4>
+              <h4 className="borderFormat"  > {techItem.name} </h4>
+              <h4 className="borderFormat" > Category: {techItem.category} </h4>
+
+              <h4 className="borderFormat"> Cost: ${techItem.cost} </h4>
+              <h4 className="borderFormat"> Availability: {techItem.availability.toString()} </h4>
+              <h4 className="borderFormat" style={{ fontSize: "12px" }}>  Description: {techItem.description} </h4>
+
             </div>
+          ))}
 
-
-
-
-            <div className = "img-container">
-              <img className = "img_item"
-                src =  {techItem.picture} alt = "alt-img"
-
-              />
-            </div>
-
-
-            <h3 className="borderFormat"> Owner: {techItem.user} </h3>
-            <h4 className="borderFormat" >ID: {techItem.user_id}</h4>
-            <h4 className="borderFormat"  > {techItem.name} </h4>
-            <h4 className="borderFormat" > Category: {techItem.category} </h4>
-
-            <h4 className="borderFormat"> Cost: ${techItem.cost} </h4>
-            <h4 className="borderFormat"> Availability: {techItem.availability.toString()} </h4>
-            <h4 className="borderFormat" style={{ fontSize: "12px" }}>  Description: {techItem.description} </h4>
-
-
-          </div>
-        ))}
-
-
-
-
-
+        </div>
 
       </div>
 
@@ -134,10 +170,11 @@ class TechItemlist extends Component {
 }
 
 
-const mapStateToProps = ({ techItems, fetchingData }) => ({
+const mapStateToProps = ({ techItems, fetchingData, addingTech, deletingTech }) => ({
   techItems,
   fetchingData,
-
+  addingTech,
+  deletingTech,
 
 
 });
@@ -145,7 +182,7 @@ const mapStateToProps = ({ techItems, fetchingData }) => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { getTech }
+    { getTech, deleteTech }
 
   )(TechItemlist)
 
