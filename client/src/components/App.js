@@ -6,7 +6,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./Login";               // UNCOMMENTED
 import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
-import TechItemlist from "./TechItemList";
+import TechItemlist from "./TechItemList_ORIG";
 import SignUpForm from './SignUpForm';
 import UserList from './UserList';
 
