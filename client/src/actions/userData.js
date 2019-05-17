@@ -4,6 +4,8 @@ import axios from 'axios';
 export const FETCH_USERS_START = 'FETCH_USERS_START';
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
+export const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS';
+export const DELETE_SMURF_FAILURE = 'DELETE_SMURF_FAILURE';
 
 export const getUsers = () => dispatch => {
   // dispatch a "start" action
@@ -28,23 +30,17 @@ export const getUsers = () => dispatch => {
     })
 }
 
-// export const getTech = () => dispatch => {
-//   dispatch({ type: FETCH_DATA_START });
-//   axios // NOTICE DIFFERENT ENDPOINT !!!!!
-//     .get(`https://usemytechstuff.herokuapp.com/api/tech`,
-//       { headers: { Authorization: localStorage.getItem("token") } })
+// export const deleteUser = id => dispatch => {
+//   axios
+//     .delete(`${'https://usemytechstuff.herokuapp.com/api/users'}/${id}`)
 //     .then(res => {
-//       console.log(" >>>>this is res  ", res);
 //       dispatch({
-//         type: FETCH_DATA_SUCCESS,
-//         payload: res.data
+//         type: DELETE_USER_SUCCESS,
+//         payload: id
 //       });
 //     })
 //     .catch(err => {
-//       console.log(err.response);
-//       if (err.response.status === 403) {
-//         localStorage.removeItem("token");
-//       }
-//       dispatch({ type: ERROR, payload: err.response });
+//       console.log(err);
+//       dispatch({ type: DELETE_USER_FAILURE });
 //     });
 // };

@@ -18,8 +18,9 @@ const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 50px #555;
+  border: 1px solid lightgrey;
+  ${'' /* border-radius: 10px; */}
+  ${'' /* box-shadow: 0px 10px 50px #555; */}
   background-color: #ffffff;
 `;
 const Form = styled.form`
@@ -34,16 +35,18 @@ const HTwo = styled.div`
   width: 100%;
   color: #111;
   font-weight: lighter;
-  font-family: Oxygen, sans-serif;
-`;
+  ${'' /* font-family: Oxygen, sans-serif; */}
+`
+
 const Label = styled.div`
   width:90%;
   font-size: 1.1rem;
   margin-bottom: 0.25em;
   color: #222;
   font-weight: lighter;
-  font-family: Oxygen, sans-serif;
-`;
+  ${'' /* font-family: Oxygen, sans-serif; */}
+`
+
 const Input = styled.input`
   padding: 2%;
   font-size: .85rem;
