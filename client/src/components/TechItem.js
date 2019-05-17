@@ -72,13 +72,7 @@ class TechItem extends Component {
 
     )
 
-
   }
-
-
-
-
-
 
 
 }
@@ -86,6 +80,4 @@ class TechItem extends Component {
 export default connect(
   null, {deleteTech}
 )
-
-
 (TechItem);
