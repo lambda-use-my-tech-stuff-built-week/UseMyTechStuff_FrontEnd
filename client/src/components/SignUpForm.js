@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 const FormWrapper = styled.div`
   width: 400px;
   display: flex;
@@ -22,13 +22,13 @@ const FormWrapper = styled.div`
   ${'' /* border-radius: 10px; */}
   ${'' /* box-shadow: 0px 10px 50px #555; */}
   background-color: #ffffff;
-`
+`;
 const Form = styled.form`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   border: none;
-`
+`;
 const HTwo = styled.div`
   font-size: 1.7rem;
   text-align: center;
@@ -37,6 +37,7 @@ const HTwo = styled.div`
   font-weight: lighter;
   ${'' /* font-family: Oxygen, sans-serif; */}
 `
+
 const Label = styled.div`
   width:90%;
   font-size: 1.1rem;
@@ -45,6 +46,7 @@ const Label = styled.div`
   font-weight: lighter;
   ${'' /* font-family: Oxygen, sans-serif; */}
 `
+
 const Input = styled.input`
   padding: 2%;
   font-size: .85rem;
@@ -52,13 +54,13 @@ const Input = styled.input`
   width: 100%;
   outline: none;
   border: 1px solid #cfcfcf;
-`
+`;
 const CreatAccount = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 const Button = styled.button`
   background-color: #519e8a;
   color: #fff;
@@ -76,14 +78,14 @@ const Button = styled.button`
   background-color: #fff;
   border: 2px solid #519e8a;
   }
-`
+`;
 const Small = styled.div`
   color: blue;
   font-size: .87rem;
   font-weight: lighter;
   font-family: Oxygen, sans-serif;
   text-align: center;
-`
+`;
 
 
 class SignUpForm extends Component {

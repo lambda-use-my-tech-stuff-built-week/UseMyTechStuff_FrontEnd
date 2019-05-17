@@ -44,23 +44,26 @@ export const login = creds => dispatch => {
 export const getTech = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
   axios // NOTICE DIFFERENT ENDPOINT !!!!!
-    .get(`https://usemytechstuff.herokuapp.com/api/tech`,
-      { headers: { Authorization: localStorage.getItem("token") } })
+    .get("https://usemytechstuff.herokuapp.com/api/tech",
+      {headers: { Authorization: localStorage.getItem("token") }
+      })
     .then(res => {
       console.log(" >>>>this is res  ", res);
       dispatch({
         type: FETCH_DATA_SUCCESS,
+        // payload: res.data.data
         payload: res.data
       });
     })
     .catch(err => {
-      console.log(err.response);
+ //     console.log(err.response);
       if (err.response.status === 403) {
         localStorage.removeItem("token");
       }
       dispatch({ type: ERROR, payload: err.response });
     });
 };
+
 
 
 export const addTech = (tech) => dispatch => {
