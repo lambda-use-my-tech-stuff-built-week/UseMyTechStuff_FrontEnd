@@ -5,7 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const UserWrapper = styled.div`
- text-align: center;
+  text-align: center;
   display: flex;
   width: 100%;
   flex-flow: row wrap;
@@ -28,7 +28,6 @@ const UserCard = styled.div`
   padding: 16px;
   width: 300px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  text-align: left;
 `
 
 
@@ -84,7 +83,7 @@ class UserList extends Component {
               <p>Email: {users.email}</p>
               <br /><button type="submit" onClick={e => {
                 // this.props.deleteUser(this.props.id);
-              }}>Delete Account</button>
+              }}>Edit Account</button>
             </UserCard>
           ))}
         </UserWrapper>
