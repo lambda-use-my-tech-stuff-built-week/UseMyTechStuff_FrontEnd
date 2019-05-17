@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUsers } from '../actions/userData';
 import axios from 'axios';
+
 class UserList extends Component {
 
   componentDidMount() {
@@ -35,8 +36,8 @@ class UserList extends Component {
         {this.state.users.map((users, id) => (
           <div className='user-card'>
             <h3>Username: {users.username}</h3>
-            <p>Password: {users.password}</p>
             <p>Email: {users.email}</p>
+            <img src={users.picture} alt="alt-img" />
           </div>
         ))}
       </div>
