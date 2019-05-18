@@ -104,7 +104,12 @@ class TechItemlist extends Component {
 
               {Number(localStorage.getItem('user_id')) !== techItem.user_id &&
                 techItem.availability
-                ? <button className = "renterButton" > Rent Item </button>
+                ? <button
+                    className = "renterButton"
+                    onClick = {() => alert(`heyyyyy ${techItem.user}, I want to rent this !!!`)}
+                    > Rent Item
+
+                  </button>
                 : null
               }
 
