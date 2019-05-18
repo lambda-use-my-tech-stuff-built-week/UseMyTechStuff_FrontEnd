@@ -5,8 +5,10 @@ export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
 export const CREATE_USER_START = 'CREATE_USER';
 export const ADD_USER = 'ADD_USER';
-export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS'
-export const ADD_USER_FAILURE = 'ADD_USER_FAILURE'
+export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
+export const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
+export const UPDATED_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
+export const UPDATED_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
 
 export const getUsers = () => dispatch => {
@@ -32,9 +34,6 @@ export const addUser = newUser => dispatch => {
   axios
     .post('https://usemytechstuff.herokuapp.com/api/auth/register', newUser)
     .then(res => {
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('user_id', res.data.user_id);
-      localStorage.setItem('username', res.data.username);
       dispatch({ type: ADD_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -42,4 +41,25 @@ export const addUser = newUser => dispatch => {
       dispatch({ type: ADD_USER_FAILURE, payload: err });
     });
 }
+
+export const updateUser = updatedUser => dispatch => {
+  dispatch({ type: UPDATED_USER_SUCCESS });
+  axios
+    .put(`https://usemytechstuff.herokuapp.com/api/users/${updatedUser.id}`, updatedUser)
+    .then(res => {
+      this.setState({ users: res.data });
+      console.log(res);
+      this.props.history.push('/users');
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: UPDATED_USER_FAILURE, payload: err });
+    });
+
+  // setActiveUser = user => {
+  //   this.setState({ activeUser: user });
+  // };
+}
+
+
 

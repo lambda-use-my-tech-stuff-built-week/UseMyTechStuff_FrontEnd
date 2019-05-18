@@ -36,8 +36,7 @@ const HTwo = styled.div`
   color: #111;
   font-weight: lighter;
   ${'' /* font-family: Oxygen, sans-serif; */}
-`
-
+`;
 const Label = styled.div`
   width:90%;
   font-size: 1.1rem;
@@ -45,8 +44,7 @@ const Label = styled.div`
   color: #222;
   font-weight: lighter;
   ${'' /* font-family: Oxygen, sans-serif; */}
-`
-
+`;
 const Input = styled.input`
   padding: 2%;
   font-size: .85rem;
@@ -63,7 +61,7 @@ const CreatAccount = styled.div`
 `;
 const Button = styled.button`
   background-color: #519e8a;
-  color: #fff;
+  color: white;
   border: 2px solid #fff;
   width: 100%;
   margin-top: 1em;
@@ -79,13 +77,13 @@ const Button = styled.button`
   border: 2px solid #519e8a;
   }
 `;
-const Small = styled.div`
-  color: blue;
-  font-size: .87rem;
-  font-weight: lighter;
-  font-family: Oxygen, sans-serif;
-  text-align: center;
-`;
+// const Small = styled.div`
+//   color: blue;
+//   font-size: .87rem;
+//   font-weight: lighter;
+//   font-family: Oxygen, sans-serif;
+//   text-align: center;
+// `
 
 
 class SignUpForm extends Component {
@@ -115,8 +113,6 @@ class SignUpForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.addUser(this.state.newUser)
-    // .then(() =>
-    //   this.props.history.push("/users"))
     console.log(this.state);
     this.setState({
       newUser: {
@@ -125,6 +121,7 @@ class SignUpForm extends Component {
         email: "",
       }
     })
+    this.addForm.reset();
   }
 
 
@@ -134,7 +131,7 @@ class SignUpForm extends Component {
       <Wrapper>
         <FormWrapper>
           <HTwo>Create Account</HTwo>
-          <Form onSubmit={this.handleSubmit}>
+          <Form ref={input => this.addForm = input} onSubmit={this.handleSubmit}>
             <Label>
               <Input
                 placeholder="Create a Username"

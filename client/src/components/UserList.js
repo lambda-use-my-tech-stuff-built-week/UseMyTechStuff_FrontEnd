@@ -10,12 +10,11 @@ const UserWrapper = styled.div`
   width: 100%;
   flex-flow: row wrap;
   justify-content: space-around;
-  border: 1px solid red;
-`
+`;
 const Title = styled.div`
   font-size: 2rem;
   text-align: center;
-`
+`;
 const UserCard = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -28,7 +27,7 @@ const UserCard = styled.div`
   padding: 16px;
   width: 300px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-`
+`;
 
 
 class UserList extends Component {
@@ -53,22 +52,6 @@ class UserList extends Component {
       })
   }
 
-  // componentDidMount() {
-  //   this.deleteUser();
-  // }
-  // deleteUser() {
-  //   axios
-  //     .delete(`${'https://usemytechstuff.herokuapp.com/api/users'}/${id}`)
-  //     .then(res => {
-  //       this.setState({
-
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log("=======ERRRRRR=======", err);
-  //     })
-  // }
-
   state = {
     users: [],
   }
@@ -81,9 +64,6 @@ class UserList extends Component {
             <UserCard>
               <h3>Username: {users.username}</h3>
               <p>Email: {users.email}</p>
-              <br /><button type="submit" onClick={e => {
-                // this.props.deleteUser(this.props.id);
-              }}>Edit Account</button>
             </UserCard>
           ))}
         </UserWrapper>
@@ -93,9 +73,11 @@ class UserList extends Component {
 };
 
 
-const mapStateToProps = ({ fetchingUsers, deletingUser }) => ({
-  fetchingUsers, deletingUser
-});
+const mapStateToProps = state => {
+  return {
+    users: state.users
+  }
+}
 
 export default connect(
   mapStateToProps,

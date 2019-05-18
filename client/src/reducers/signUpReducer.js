@@ -5,6 +5,8 @@ import {
   FETCH_USERS_START,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
+  UPDATED_USER_SUCCESS,
+  UPDATED_USER_FAILURE,
 } from '../actions';
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
   username: '',
   fetchingUsers: false,
   addingUser: false,
+  updatingUser: false,
   error: null
 }
 
@@ -64,6 +67,21 @@ export const signUpReducer = (state = initialState, action) => {
         fetchingUsers: false,
         error: action.payload
       };
+
+    case UPDATED_USER_SUCCESS:
+      return {
+        ...state,
+        updatingUser: false,
+        error: null,
+        users: action.payload
+      }
+
+    case UPDATED_USER_FAILURE:
+    return {
+      ...state,
+      updatingUser: false,
+      error: action.payload
+    }
 
     default:
       return state;
