@@ -3,25 +3,56 @@ import './App.css';
 
 import Loader from 'react-loader-spinner';
 
-import {getTech, deleteTech, updateTech} from '../actions';
+import {getTech, deleteTech, updateTech, addTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 // import { FaBeer } from 'react-icons/fa';
-import AddTechForm from './AddTechForm';
+//import AddTechForm from './AddTechForm';
 // import axios from "axios";
 ;
 class TechItemlist2 extends Component {
+  state = {
+    name: '',
+    user_id: localStorage.getItem("user_id"),
+  //  user_id: 23,
+    category: '',
+    description: '',
+    picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
+    cost: '',
+  //  availability: true,
+   availability: false,
+  };
 
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value})
+    //   this.setState({newTodo: e.target.value})
+  };
 
-  /*
-    toggleChange = () => {
-      console.log("isChecked is ", this.isChecked);
+  handleSubmit = e => {
+    const {name, user_id, category, picture, description, cost, availability} = this.state;
+    e.preventDefault();
+
+    // must fill in ALL fields !!!
+    if(name && category && description && category && cost ) {
+      this.props.addTech({name, user_id, category, picture, description, cost, availability});
+      // this.props.getTech();
       this.setState({
-        isChecked: !this.state.isChecked
+        name: '',
+        category: '',
+        description: '',
+        picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
+        cost: '',
+        availability: false,
       });
-    };
+    }
 
-  */
+  };
+
+
+
+
+
 
   componentDidMount() {
     this.props.getTech();
@@ -59,7 +90,7 @@ class TechItemlist2 extends Component {
 
   handleUpdate  = (e, id, tech) => {
 
-    const {name, user_id, category, picture, description, cost, availability} = this.state;
+    //   const {name, user_id, category, picture, description, cost, availability} = this.state;
 
 
     e.preventDefault();
@@ -77,7 +108,77 @@ class TechItemlist2 extends Component {
     return (
       <div className = "techItemsList-container">
 
-        <AddTechForm/>
+
+
+        <div className = "addTechItem-container">
+          <form
+            className = "addTechItemForm"
+            onSubmit = {this.handleSubmit}
+          >
+
+            <div className = "buttonContainer">
+              <button
+                className = "addTechItemButton"
+              >Add some "NEW" Tech !!!
+              </button>
+            </div>
+
+            <div className = "boxy">
+
+              <div className = "techFormInputs">
+                <input
+                  className= "addInputFieldName"
+                  value = {this.state.name}
+                  name = "name"
+                  type = "text"
+                  placeholder = "name"
+                  onChange={this.handleChange}
+                />
+                <input
+                  className= "addInputField"
+                  value = {this.state.category}
+                  name = "category"
+                  type = "text"
+                  placeholder = "category"
+                  onChange={this.handleChange}
+                />
+
+                <input
+                  className= "addInputField"
+                  value = {this.state.cost}
+                  name = "cost"
+                  type = "text"
+                  placeholder = "cost"
+                  onChange={this.handleChange}
+                />
+              </div>
+
+              <div className= "addTextAreaField" >
+              <textarea
+                value = {this.state.picture}
+                name = "picture"
+                placeholder = "picture"
+                onChange={this.handleChange}
+              />
+              </div>
+
+              <div className = "addTextAreaField">
+               <textarea
+                 value = {this.state.description}
+                 name = "description"
+                 wrap="hard"
+                 placeholder = "description"
+                 onChange={this.handleChange}
+               />
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+
+
 
 
         {this.props.techItems.fetchingData?
@@ -88,7 +189,6 @@ class TechItemlist2 extends Component {
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
           <div className = "techItem-container"   key = {id}       >
-
 
 
             <div className = "buttons-container">
@@ -102,8 +202,14 @@ class TechItemlist2 extends Component {
                   : <h3 className = "borderFormat rented"> Rented </h3>
               }
 
-              {Number(localStorage.getItem('user_id')) !== techItem.user_id
-                ? <button className = "renterButton" > Rent Item </button>
+              {Number(localStorage.getItem('user_id')) !== techItem.user_id &&
+              techItem.availability
+                ? <button
+                  className = "renterButton"
+                  onClick = {() => alert(`heyyyyy ${techItem.user}, I want to rent this !!!`)}
+                > Rent Item
+
+                </button>
                 : null
               }
 
@@ -145,11 +251,12 @@ class TechItemlist2 extends Component {
 }
 
 
-const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) => ({
+const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
   techItems,
   fetchingData,
   deletingTech,
   updatingTech,
+  addingTech,
 
 
 });
@@ -157,7 +264,7 @@ const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) 
 export default withRouter(
   connect(
     mapStateToProps,
-    {getTech, deleteTech, updateTech}
+    {getTech, deleteTech, updateTech, addTech}
 
   )(TechItemlist2)
 

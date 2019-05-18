@@ -94,7 +94,7 @@ class SignUpForm extends Component {
       password: "",
       email: "",
     }
-  }
+  };
   componentDidMount() {
     this.props.getUsers();
   }
@@ -108,7 +108,7 @@ class SignUpForm extends Component {
         [e.target.name]: e.target.value
       }
     })
-  }
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -120,9 +120,9 @@ class SignUpForm extends Component {
         password: "",
         email: "",
       }
-    })
+    });
     this.addForm.reset();
-  }
+  };
 
 
   render() {
@@ -132,7 +132,7 @@ class SignUpForm extends Component {
         <FormWrapper>
           <HTwo>Create Account</HTwo>
           <Form ref={input => this.addForm = input} onSubmit={this.handleSubmit}>
-            <Label>
+            <Label> Username:
               <Input
                 placeholder="Create a Username"
                 type="text"
@@ -141,7 +141,7 @@ class SignUpForm extends Component {
                 onChange={this.handleChange}
               />
             </Label>
-            <Label>
+            <Label> Password
               <Input
                 placeholder="Create a Password"
                 type="password"
@@ -150,7 +150,7 @@ class SignUpForm extends Component {
                 onChange={this.handleChange}
               />
             </Label>
-            <Label>
+            <Label> email
               <Input
                 placeholder="Email"
                 type="email"

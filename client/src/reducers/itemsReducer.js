@@ -13,9 +13,7 @@ import {
   UPDATING_TECH,
   UPDATE_TECH,
 
-
   ERROR,
-
 
 } from "../actions";
 
@@ -109,7 +107,6 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         deletingTech: true,
-
       };
 
     case UPDATE_TECH:
@@ -119,8 +116,6 @@ export const itemsReducer = (state = initialState, action) => {
         techItems: [...state.techItems, {...action.payload}],
 
       };
-
-
 
     case ERROR:
       return {

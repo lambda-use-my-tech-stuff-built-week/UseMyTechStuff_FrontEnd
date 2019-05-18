@@ -3,7 +3,7 @@ import './App.css';
 
 import Loader from 'react-loader-spinner';
 
-import {getTech, deleteTech, updateTech} from '../actions';
+import {getTech, deleteTech, updateTech, addTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 // import { FaBeer } from 'react-icons/fa';
@@ -12,16 +12,6 @@ import AddTechForm from './AddTechForm';
 ;
 class TechItemlist extends Component {
 
-
-  /*
-    toggleChange = () => {
-      console.log("isChecked is ", this.isChecked);
-      this.setState({
-        isChecked: !this.state.isChecked
-      });
-    };
-
-  */
 
   componentDidMount() {
     this.props.getTech();
@@ -59,7 +49,7 @@ class TechItemlist extends Component {
 
   handleUpdate  = (e, id, tech) => {
 
-    const {name, user_id, category, picture, description, cost, availability} = this.state;
+ //   const {name, user_id, category, picture, description, cost, availability} = this.state;
 
 
     e.preventDefault();
@@ -79,7 +69,6 @@ class TechItemlist extends Component {
 
         <AddTechForm/>
 
-
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
@@ -88,7 +77,6 @@ class TechItemlist extends Component {
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
           <div className = "techItem-container"   key = {id}       >
-
 
 
             <div className = "buttons-container">
@@ -151,11 +139,12 @@ class TechItemlist extends Component {
 }
 
 
-const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) => ({
+const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
   techItems,
   fetchingData,
   deletingTech,
   updatingTech,
+  addingTech,
 
 
 });
@@ -163,7 +152,7 @@ const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) 
 export default withRouter(
   connect(
     mapStateToProps,
-    {getTech, deleteTech, updateTech}
+    {getTech, deleteTech, updateTech, addTech}
 
   )(TechItemlist)
 
