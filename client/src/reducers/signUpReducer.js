@@ -17,7 +17,7 @@ const initialState = {
   addingUser: false,
   updatingUser: false,
   error: null
-}
+};
 
 export const signUpReducer = (state = initialState, action) => {
   console.log('signUpReducer', action);
@@ -43,7 +43,7 @@ export const signUpReducer = (state = initialState, action) => {
         ...state,
         addingUser: false,
         error: action.payload
-      }
+      };
 
     case FETCH_USERS_START:
       return {
@@ -74,16 +74,16 @@ export const signUpReducer = (state = initialState, action) => {
         updatingUser: false,
         error: null,
         users: action.payload
-      }
+      };
 
     case UPDATED_USER_FAILURE:
     return {
       ...state,
       updatingUser: false,
       error: action.payload
-    }
+    };
 
     default:
       return state;
   }
-}
+};

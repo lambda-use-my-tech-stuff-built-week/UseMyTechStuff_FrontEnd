@@ -13,16 +13,6 @@ import AddTechForm from './AddTechForm';
 class TechItemlist extends Component {
 
 
-  /*
-    toggleChange = () => {
-      console.log("isChecked is ", this.isChecked);
-      this.setState({
-        isChecked: !this.state.isChecked
-      });
-    };
-
-  */
-
   componentDidMount() {
     this.props.getTech();
   }
@@ -59,7 +49,7 @@ class TechItemlist extends Component {
 
   handleUpdate  = (e, id, tech) => {
 
-    const {name, user_id, category, picture, description, cost, availability} = this.state;
+ //   const {name, user_id, category, picture, description, cost, availability} = this.state;
 
 
     e.preventDefault();
@@ -79,7 +69,6 @@ class TechItemlist extends Component {
 
         <AddTechForm/>
 
-
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
@@ -88,7 +77,6 @@ class TechItemlist extends Component {
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
           <div className = "techItem-container"   key = {id}       >
-
 
 
             <div className = "buttons-container">
