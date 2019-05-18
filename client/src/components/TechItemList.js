@@ -3,7 +3,7 @@ import './App.css';
 
 import Loader from 'react-loader-spinner';
 
-import {getTech, deleteTech, updateTech} from '../actions';
+import {getTech, deleteTech, updateTech, addTech} from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 // import { FaBeer } from 'react-icons/fa';
@@ -139,11 +139,12 @@ class TechItemlist extends Component {
 }
 
 
-const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) => ({
+const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
   techItems,
   fetchingData,
   deletingTech,
   updatingTech,
+  addingTech,
 
 
 });
@@ -151,7 +152,7 @@ const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech}) 
 export default withRouter(
   connect(
     mapStateToProps,
-    {getTech, deleteTech, updateTech}
+    {getTech, deleteTech, updateTech, addTech}
 
   )(TechItemlist)
 

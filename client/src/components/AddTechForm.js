@@ -11,14 +11,14 @@ import { withRouter } from "react-router-dom";
 class AddTechForm extends Component {
   state = {
     name: '',
- //   user_id: localStorage.getItem("user_id"),
-    user_id: 23,
+    user_id: localStorage.getItem("user_id"),
+ //   user_id: 23,
     category: '',
     description: '',
     picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
     cost: '',
-    availability: false,
-
+  //  availability: true,
+  availability: false,
   };
 
   handleChange = e => {
@@ -124,7 +124,7 @@ class AddTechForm extends Component {
 
 
 const mapStateToProps = state => ({
-  techItems: state.techItems,       // ADDED TODAY
+  techItems: state.techItems,       // ADDED TODAY, did not resolve
   addingTech: state.addingTech,
   error: state.error,
 

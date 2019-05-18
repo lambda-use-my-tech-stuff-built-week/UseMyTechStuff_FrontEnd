@@ -44,13 +44,13 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         updatingUser: false,
         users: action.payload
-      }
+      };
     case UPDATE_USER_FAILURE:
       return {
         ...state,
         updatingUser: false,
         error: ''
-      }
+      };
     case DELETE_USER_SUCCESS:
       return {
         ...state,
