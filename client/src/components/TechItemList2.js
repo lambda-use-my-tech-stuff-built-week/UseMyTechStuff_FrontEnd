@@ -64,14 +64,7 @@ class TechItemlist2 extends Component {
             id = {id}
           />
 
-
-
         ))}
-
-
-
-
-
 
       </div>
 
