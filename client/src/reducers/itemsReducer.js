@@ -77,10 +77,19 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         addingTech: false,
+        techItems: action.payload,
+      };
+
+
+/*
+    case ADDED_TECH:
+      return {
+        ...state,
+        addingTech: false,
         techItems: [...state.techItems, {...action.payload}],
 
       };
-
+*/
 
     case DELETING_TECH:
       return {
