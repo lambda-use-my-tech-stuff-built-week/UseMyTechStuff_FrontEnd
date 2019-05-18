@@ -24,7 +24,6 @@ class TechItem extends Component {
       <div className = "techItem-container"   key = {id}       >
 
 
-
         <div className = "buttons-container">
           {Number(localStorage.getItem('user_id')) === techItem.user_id
             ? <button
@@ -49,6 +48,7 @@ class TechItem extends Component {
 
           {Number(localStorage.getItem('user_id')) === techItem.user_id
             ? <ModalUpdateTech
+              techItem = {techItem}
               onClick = { (e) => this.handleUpdate(e, techItem.id, techItem)}
               className = "ownerButton"> Update Item </ModalUpdateTech>
             : null
@@ -83,5 +83,4 @@ class TechItem extends Component {
 
 export default connect(
   null, {deleteTech}
-)
-(TechItem);
+)(TechItem);
