@@ -29,14 +29,15 @@ class TechItemlist extends Component {
 
   // handlers
 
-/*
+
   handleDelete = (e, id) => {
     console.log(">>>>>>>>>>>>>>>>>>> deleting");
     e.preventDefault();
     this.props.deleteTech(id);
   };
-*/
 
+
+/*
   handleDelete = (e, id) => {
     axios
       .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
@@ -52,8 +53,9 @@ class TechItemlist extends Component {
       .catch(err =>  { console.log(">>>>>>>  ERROR  delete");               // err
    //     dispatch({type: ERROR, payload: err.response});
       })
-
   };
+*/
+
 
   handleUpdate  = (e, id, tech) => {
 
@@ -96,17 +98,7 @@ class TechItemlist extends Component {
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
-          <h3
-            style = { {
-              width: "75%",
-              border: "1px solid green",
-              fontSize: "40px",
-              margin: "5px auto",
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-            } }
-          > TechItems for Rent !</h3>
+          <h3 className = "techTitle"> TechItems for Rent !</h3>
         }
 
         {this.props.techItems.techItems.map( (techItem, id ) => (

@@ -71,6 +71,8 @@ export const getTech = () => dispatch => {
 
 
 export const addTech = (tech) => dispatch => {
+
+
   dispatch({type: ADDING_TECH});
   axios
     .post(`https://usemytechstuff.herokuapp.com/api/tech`, tech,
@@ -78,7 +80,7 @@ export const addTech = (tech) => dispatch => {
       })
 
     .then(res => {
-      console.log(res);
+      console.log(" addTech payload",res);
       dispatch({
         type: ADDED_TECH,
         payload: res.data

@@ -123,6 +123,7 @@ class AddTechForm extends Component {
 
 
 const mapStateToProps = state => ({
+  techItems: state.techItems,       // ADDED TODAY
   addingTech: state.addingTech,
   error: state.error,
 

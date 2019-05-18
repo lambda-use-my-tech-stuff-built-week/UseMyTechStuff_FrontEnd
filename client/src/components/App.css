@@ -145,7 +145,17 @@ h5, h6 {
 }
 
 
+.techTitle {
+  width: 75%;
+  border: 1px solid green;
+  font-size: 40px;
+  margin: 5px auto;
+  color: black;
+  display: flex;
+  justify-content: center;
 
+
+}
 
 .title {
   width: 75%;
