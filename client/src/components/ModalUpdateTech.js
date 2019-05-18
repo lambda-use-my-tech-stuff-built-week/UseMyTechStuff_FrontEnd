@@ -76,6 +76,7 @@ class ModalUpdateTech extends React.Component {
     console.log('>>>>>  $$$$$$   itemUpdated', itemUpdated);
 
     this.props.updateTech(this.state.gud_id, itemUpdated);
+    this.handleToggle();
   };
 
 
