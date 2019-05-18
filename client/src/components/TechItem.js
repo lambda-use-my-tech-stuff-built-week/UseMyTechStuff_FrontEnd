@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import './App.css';
 import {deleteTech} from "../actions";
 import {connect} from 'react-redux';
+import ModalUpdateTech from './ModalUpdateTech';
+
 
 class TechItem extends Component {
 
@@ -13,16 +15,13 @@ class TechItem extends Component {
     this.props.deleteTech(id);
   };
 
+
   render()  {
 
     const {techItem, id} = this.props;
 
     return (
       <div className = "techItem-container"   key = {id}       >
-
-
-
-
 
 
 
@@ -49,9 +48,9 @@ class TechItem extends Component {
           }
 
           {Number(localStorage.getItem('user_id')) === techItem.user_id
-            ? <button
-              onClick = { (e) => this.handleUpdate(techItem.id, techItem)}
-              className = "ownerButton"> Update Item </button>
+            ? <ModalUpdateTech
+              onClick = { (e) => this.handleUpdate(e, techItem.id, techItem)}
+              className = "ownerButton"> Update Item </ModalUpdateTech>
             : null
           }
         </div>

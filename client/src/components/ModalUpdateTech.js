@@ -6,25 +6,28 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 
 
+//     picture: "https://zdnet2.cbsistatic.com/hub/i/r/2018/01/26/b4fe5bfc-6e3b-4575-b8db-f06caadc1a71/thumbnail/770x578/5f810055799b727df363a6e0cfcece38/tech-transport-future-intro.jpg",
+
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ModalUpdateTech extends React.Component {
 
-  state = {
-    modal: false,
+  constructor(props) {
+
+    super(props);
+    this.state = {
+      modal: false,
+      techItem: this.props.techItem,
+
+    };
+
+    this.handleToggle = this.handleToggle.bind(this);
+
+  }
 
 
-    name: '',
-    user_id: localStorage.getItem("user_id"),
-    //   user_id: 23,
-    category: '',
-    description: '',
-    picture: "https://zdnet2.cbsistatic.com/hub/i/r/2018/01/26/b4fe5bfc-6e3b-4575-b8db-f06caadc1a71/thumbnail/770x578/5f810055799b727df363a6e0cfcece38/tech-transport-future-intro.jpg",
-    cost: '',
-    //  availability: true,
-    availability: true,
-  };
+
 
   handleChange = e => {
     e.preventDefault();
@@ -32,25 +35,6 @@ class ModalUpdateTech extends React.Component {
     //   this.setState({newTodo: e.target.value})
   };
 
-  handleSubmit = e => {
-    const {name, user_id, category, picture, description, cost, availability} = this.state;
-    e.preventDefault();
-
-    // must fill in ALL fields !!!
-    if(name && category && description && category && cost ) {
-      this.props.addTech({name, user_id, category, picture, description, cost, availability});
-      // this.props.getTech();
-      this.setState({
-        name: '',
-        category: '',
-        description: '',
-        picture: '',
-        cost: '',
-        availability: false,
-      });
-    }
-
-  };
 
   handleUpdate  = (e, id, tech) => {
 
@@ -64,43 +48,55 @@ class ModalUpdateTech extends React.Component {
 
 
 
+
+
+  handleToggle = () => {
+
+    this.setState( {
+      modal: !this.state.modal,
+
+    });
+
+  };
+
   render() {
+
+    const {name, user_id, category, picture, description, cost, availability} = this.state;
+
     return (
+
+
+
+
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Login to UseMyTechstuff !</ModalHeader>
+
+
+        <Button color="danger" onClick={this.handleToggle}> Update  </Button>
+        <Modal isOpen={this.state.modal}>
+          <ModalHeader toggle = {this.handleToggle} > Modal Header Stuff</ModalHeader>
           <ModalBody>
 
 
 
-            <div className = "addTechItem-container">
+            <div >
               <form
-                className = "addTechItemForm"
-                onSubmit = {this.handleSubmit}
+
+                onSubmit = {this.handleUpdate}
               >
 
-                <div className = "buttonContainer">
-                  <button
-                    className = "addTechItemButton"
-                  >UPDATE Tech !!!
-                  </button>
-                </div>
+                <div >
 
-                <div className = "boxy">
-
-                  <div className = "techFormInputs">
+                  <div >
                     <input
-                      className= "addInputFieldName"
-                      value = {this.state.name}
+
+                      value = {name}
                       name = "name"
                       type = "text"
                       placeholder = "name"
                       onChange={this.handleChange}
                     />
                     <input
-                      className= "addInputField"
-                      value = {this.state.category}
+                      value = {category}
                       name = "category"
                       type = "text"
                       placeholder = "category"
@@ -108,8 +104,7 @@ class ModalUpdateTech extends React.Component {
                     />
 
                     <input
-                      className= "addInputField"
-                      value = {this.state.cost}
+                      value = {cost}
                       name = "cost"
                       type = "text"
                       placeholder = "cost"
@@ -117,24 +112,25 @@ class ModalUpdateTech extends React.Component {
                     />
                   </div>
 
-                  <div className= "addTextAreaField" >
-              <textarea
-                value = {this.state.picture}
-                name = "picture"
-                placeholder = "picture"
-                onChange={this.handleChange}
-              />
+                  <div >
+                    <textarea
+                      value = {picture}
+                      name = "picture"
+                      placeholder = "picture"
+                      onChange={this.handleChange}
+                    />
                   </div>
 
-                  <div className = "addTextAreaField">
-               <textarea
-                 value = {this.state.description}
-                 name = "description"
-                 wrap="hard"
-                 placeholder = "description"
-                 onChange={this.handleChange}
-               />
+                  <div>
+                     <textarea
+                       value = {description}
+                       name = "description"
+                       wrap="hard"
+                       placeholder = "description"
+                       onChange={this.handleChange}
+                     />
                   </div>
+
                 </div>
 
               </form>
