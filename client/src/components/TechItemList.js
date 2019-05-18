@@ -102,7 +102,8 @@ class TechItemlist extends Component {
                   : <h3 className = "borderFormat rented"> Rented </h3>
               }
 
-              {Number(localStorage.getItem('user_id')) !== techItem.user_id
+              {Number(localStorage.getItem('user_id')) !== techItem.user_id &&
+                techItem.availability
                 ? <button className = "renterButton" > Rent Item </button>
                 : null
               }
