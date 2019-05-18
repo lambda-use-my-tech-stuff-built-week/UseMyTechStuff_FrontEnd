@@ -27,26 +27,6 @@ class TechItemlist extends Component {
   };
 
 
-/*
-  handleDelete = (e, id) => {
-    axios
-      .delete(`https://usemytechstuff.herokuapp.com/api/tech/${id}`,
-        {headers: { Authorization: localStorage.getItem("token") }
-        })
-      .then(res => {
-        console.log(res);
-   //     dispatch({
-   //       type: DELETE_TECH,
-   //       payload: res.data
-   //     });
-      })
-      .catch(err =>  { console.log(">>>>>>>  ERROR  delete");               // err
-   //     dispatch({type: ERROR, payload: err.response});
-      })
-  };
-*/
-
-
   handleUpdate  = (e, id, tech) => {
 
  //   const {name, user_id, category, picture, description, cost, availability} = this.state;
