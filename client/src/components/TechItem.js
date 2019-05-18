@@ -84,3 +84,6 @@ class TechItem extends Component {
 export default connect(
   null, {deleteTech}
 )(TechItem);
+
+
+//           onClick = { (e) => this.handleUpdate(e, techItem.id, techItem)}

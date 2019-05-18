@@ -26,6 +26,7 @@ const initialState = {
   fetchingData: false,
   addingTech: false,
   deletingTech: false,
+  updatingTech: false,
 
  // token: localStorage.getItem('token'),
 };
@@ -106,9 +107,9 @@ export const itemsReducer = (state = initialState, action) => {
     case UPDATING_TECH:
       return {
         ...state,
-        deletingTech: true,
+        updatingTech: true,
       };
-
+/*
     case UPDATE_TECH:
       return {
         ...state,
@@ -116,6 +117,17 @@ export const itemsReducer = (state = initialState, action) => {
         techItems: [...state.techItems, {...action.payload}],
 
       };
+*/
+    case UPDATE_TECH:
+      return {
+        ...state,
+        updatingTech: false,
+        techItems: action.payload,
+
+      };
+
+
+
 
     case ERROR:
       return {
