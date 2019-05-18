@@ -100,7 +100,7 @@ export const deleteTech = (id) => dispatch => {
       {headers: { Authorization: localStorage.getItem("token") }
       })
     .then(res => {
-      console.log(res);
+      console.log("we are deleting !!  ", res);
       dispatch({
         type: DELETE_TECH,
         payload: res.data

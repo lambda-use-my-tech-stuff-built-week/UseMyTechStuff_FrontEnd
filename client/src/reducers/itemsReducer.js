@@ -70,7 +70,6 @@ export const itemsReducer = (state = initialState, action) => {
       return {
         ...state,
         addingTech: true,
-
       };
 
     case ADDED_TECH:

@@ -16,7 +16,7 @@ class AddTechForm extends Component {
     description: '',
     picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
     cost: '',
-    availability: true,
+    availability: false,
 
   };
 
