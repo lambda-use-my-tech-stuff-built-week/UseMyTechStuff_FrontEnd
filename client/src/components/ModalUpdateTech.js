@@ -13,12 +13,14 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ModalUpdateTech extends React.Component {
 
+  /*
   constructor(props) {
 
+    console.log(">>>>>  modal props !!!", props);
     super(props);
     this.state = {
       modal: false,
-      techItem: this.props.techItem,
+      techItem: this.props.techItem.techItem,
 
     };
 
@@ -26,7 +28,13 @@ class ModalUpdateTech extends React.Component {
 
   }
 
+*/
 
+  state = {
+    modal: false,
+    techItem: this.props.techItem,
+
+  };
 
 
   handleChange = e => {
@@ -38,7 +46,7 @@ class ModalUpdateTech extends React.Component {
 
   handleUpdate  = (e, id, tech) => {
 
-    //   const {name, user_id, category, picture, description, cost, availability} = this.state;
+       const {name, user_id, category, picture, description, cost, availability} = this.state.techItem;
 
 
     e.preventDefault();
@@ -61,7 +69,7 @@ class ModalUpdateTech extends React.Component {
 
   render() {
 
-    const {name, user_id, category, picture, description, cost, availability} = this.state;
+     const {name, user_id, category, picture, description, cost, availability} = this.state.techItem;
 
     return (
 
