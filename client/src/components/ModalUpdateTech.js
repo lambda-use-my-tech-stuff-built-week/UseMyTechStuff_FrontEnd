@@ -33,24 +33,49 @@ class ModalUpdateTech extends React.Component {
   state = {
     modal: false,
     techItem: this.props.techItem,
-
+    gud_id: this.props.techItem.id,
   };
 
 
   handleChange = e => {
     e.preventDefault();
-    this.setState({[e.target.name]: e.target.value})
-    //   this.setState({newTodo: e.target.value})
+    this.setState({
+
+        techItem: {
+          [e.target.name]: e.target.value
+        }
+
+      })
   };
 
 
-  handleUpdate  = (e, id, tech) => {
+  handleUpdate  = (e, id) => {
 
        const {name, user_id, category, picture, description, cost, availability} = this.state.techItem;
 
+       const new_id = Number(id);
+
+       const itemUpdated = {
+    //     name: this.state.techItem.name,
+
+         name: name,
+         category: category,
+         picture: picture,
+         description: description,
+         cost: cost,
+         availability: availability,
+         id: this.state.gud_id,
+         user_id: user_id,
+
+       };
+
+
 
     e.preventDefault();
-    this.props.updateTech(id, tech);
+
+    console.log('>>>>>  $$$$$$   itemUpdated', itemUpdated);
+
+    this.props.updateTech(this.state.gud_id, itemUpdated);
   };
 
 
@@ -69,7 +94,7 @@ class ModalUpdateTech extends React.Component {
 
   render() {
 
-     const {name, user_id, category, picture, description, cost, availability} = this.state.techItem;
+     const {name, id, category, picture, description, cost, availability} = this.state.techItem;
 
     return (
 
@@ -93,6 +118,8 @@ class ModalUpdateTech extends React.Component {
               >
 
                 <div >
+
+                  <h4> id: {this.state.gud_id} </h4>
 
                   <div >
                     <input
@@ -150,7 +177,7 @@ class ModalUpdateTech extends React.Component {
 
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="primary" onClick={ (e) => this.handleUpdate(e, id)  }> Update</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
