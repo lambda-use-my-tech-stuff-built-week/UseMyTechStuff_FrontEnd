@@ -8,7 +8,7 @@ export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 
 export const ADDING_TECH = "ADDING_TECH";
-export const ADDED_TECH = "ADDING_TECH";
+export const ADDED_TECH = "ADDED_TECH";   // OMG
 
 export const DELETING_TECH = "DELETING_TECH";
 export const DELETE_TECH = "DELETE_TECH";
