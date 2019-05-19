@@ -29,6 +29,17 @@ function App() {
           <li>
             <Link to="/users">Techies</Link>
           </li>
+          <li>
+            <Link to="/"
+              onClick = { () =>  {
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("user_id");
+                  localStorage.removeItem("username");
+              }
+                  }
+            >Logout</Link>
+          </li>
+
         </ul>
       </div>
       <Route
@@ -42,6 +53,7 @@ function App() {
         render={props => <SignUpForm {...props} addingUser={false} />}
       />
       <Route exact path="/users" component={UserList} />
+
     </Router>
 
   );

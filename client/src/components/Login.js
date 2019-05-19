@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Loader from "react-loader-spinner";
 import { login } from '../actions';
+// import {Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -80,7 +82,10 @@ class Login extends React.Component {
 
           <div className = "signUp-container">
             <h4 className = "signUpTagline">New to Use My Tech Stuff ?</h4>
-            <button className = "signUpButton">  Sign Up !!! </button>
+            <button
+              className = "signUpButton"
+              onClick = { () => this.props.history.push("/signupform") }
+              >  Sign Up !!! </button>
           </div>
 
 
