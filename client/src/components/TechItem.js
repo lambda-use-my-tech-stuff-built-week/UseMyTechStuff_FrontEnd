@@ -5,9 +5,7 @@ import {deleteTech} from "../actions";
 import {connect} from 'react-redux';
 import ModalUpdateTech from './ModalUpdateTech';
 
-
 class TechItem extends Component {
-
 
   handleDelete = (e, id) => {
    console.log(">>>>>>>>>>>>>>>>>>> deleting");
@@ -69,21 +67,12 @@ class TechItem extends Component {
         <h4 className = "borderFormat" style = {{fontSize: "12px"}}>  Description: {techItem.description} </h4>
       </div>   // end of techItem-container
 
-
-
-
-
-
     )
 
   }
-
 
 }
 
 export default connect(
   null, {deleteTech}
 )(TechItem);
-
-
-//           onClick = { (e) => this.handleUpdate(e, techItem.id, techItem)}

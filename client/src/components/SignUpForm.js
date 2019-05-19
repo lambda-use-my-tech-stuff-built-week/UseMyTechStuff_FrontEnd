@@ -112,7 +112,7 @@ class SignUpForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addUser(this.state.newUser)
+    this.props.addUser(this.state.newUser);
     console.log(this.state);
     this.setState({
       newUser: {

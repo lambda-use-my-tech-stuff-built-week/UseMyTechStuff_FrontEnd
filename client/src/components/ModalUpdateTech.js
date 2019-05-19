@@ -12,36 +12,18 @@ import { withRouter } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ModalUpdateTech extends React.Component {
-
-  /*
-  constructor(props) {
-
-    console.log(">>>>>  modal props !!!", props);
-    super(props);
-    this.state = {
-      modal: false,
-      techItem: this.props.techItem.techItem,
-
-    };
-
-    this.handleToggle = this.handleToggle.bind(this);
-
-  }
-
-*/
-
   state = {
     modal: false,
     techItem: this.props.techItem,
     gud_id: this.props.techItem.id,
   };
 
-
   handleChange = e => {
     e.preventDefault();
     this.setState({
 
         techItem: {
+          ...this.state.techItem,       // just added  TONIGHT
           [e.target.name]: e.target.value
         }
 
@@ -53,11 +35,7 @@ class ModalUpdateTech extends React.Component {
 
        const {name, user_id, category, picture, description, cost, availability} = this.state.techItem;
 
-       const new_id = Number(id);
-
        const itemUpdated = {
-    //     name: this.state.techItem.name,
-
          name: name,
          category: category,
          picture: picture,
@@ -66,7 +44,6 @@ class ModalUpdateTech extends React.Component {
          availability: availability,
          id: this.state.gud_id,
          user_id: user_id,
-
        };
 
 
@@ -79,11 +56,6 @@ class ModalUpdateTech extends React.Component {
     this.handleToggle();
   };
 
-
-
-
-
-
   handleToggle = () => {
 
     this.setState( {
@@ -95,26 +67,19 @@ class ModalUpdateTech extends React.Component {
 
   render() {
 
-     const {name, id, category, picture, description, cost, availability} = this.state.techItem;
+    const {name, id, category, picture, description, cost} = this.state.techItem;
 
     return (
-
-
-
-
       <div>
 
-
         <Button color="danger" onClick={this.handleToggle}> Update  </Button>
+
         <Modal isOpen={this.state.modal}>
-          <ModalHeader toggle = {this.handleToggle} > Modal Header Stuff</ModalHeader>
+          <ModalHeader toggle = {this.handleToggle} > Update {name}</ModalHeader>
           <ModalBody>
-
-
 
             <div >
               <form
-
                 onSubmit = {this.handleUpdate}
               >
 
@@ -124,7 +89,6 @@ class ModalUpdateTech extends React.Component {
 
                   <div >
                     <input
-
                       value = {name}
                       name = "name"
                       type = "text"
@@ -168,40 +132,38 @@ class ModalUpdateTech extends React.Component {
                   </div>
 
                 </div>
-
               </form>
-
             </div>
 
-
-
-
           </ModalBody>
+
           <ModalFooter>
             <Button color="primary" onClick={ (e) => this.handleUpdate(e, id)  }> Update</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.handleToggle}>Cancel</Button>
           </ModalFooter>
+
         </Modal>
+
       </div>
     );
   }
 }
 
+
+
 const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
-  techItems,
+ techItems,
   fetchingData,
   deletingTech,
   updatingTech,
   addingTech,
-
-
 });
+
 
 export default withRouter(
   connect(
     mapStateToProps,
     {getTech, deleteTech, updateTech, addTech}
-
   )(ModalUpdateTech)
 
 );

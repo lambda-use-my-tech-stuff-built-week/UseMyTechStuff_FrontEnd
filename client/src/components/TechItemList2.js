@@ -29,6 +29,7 @@ class TechItemlist2 extends Component {
   };
 */
 
+/*
   handleUpdate  = (e, id, tech) => {
 
     //   const {name, user_id, category, picture, description, cost, availability} = this.state;
@@ -37,10 +38,8 @@ class TechItemlist2 extends Component {
     e.preventDefault();
     this.props.updateTech(id, tech);
   };
+*/
 
-
-
-// <button className = "renterButton" > Rent Item </button>
 
   render() {
 
@@ -72,6 +71,28 @@ class TechItemlist2 extends Component {
   }
 }
 
+/*
+const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
+  techItems,
+  fetchingData,
+//  deletingTech,
+//  updatingTech,
+//  addingTech,
+
+
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {getTech}
+  )(TechItemlist2)
+);
+
+*/
+
+
+
 
 const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
   techItems,
@@ -87,7 +108,6 @@ export default withRouter(
   connect(
     mapStateToProps,
     {getTech, deleteTech, updateTech, addTech}
-
   )(TechItemlist2)
-
 );
+
