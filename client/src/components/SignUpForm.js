@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 
 const Wrapper = styled.div`
-  height: 100vh;
+ // height: 100vh;
+  margin-top: 50px; 
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -17,11 +18,11 @@ const FormWrapper = styled.div`
   width: 400px;
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  border: 2px solid dodgerblue;
   padding: 20px 40px;
-  border: 1px solid lightgrey;
-  ${'' /* border-radius: 10px; */}
-  ${'' /* box-shadow: 0px 10px 50px #555; */}
   background-color: #ffffff;
+    background: gainsboro;
 `;
 const Form = styled.form`
   width: 100%;
@@ -30,12 +31,15 @@ const Form = styled.form`
   border: none;
 `;
 const HTwo = styled.div`
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   text-align: center;
   width: 100%;
-  color: #111;
-  font-weight: lighter;
-  ${'' /* font-family: Oxygen, sans-serif; */}
+  color: dodgerblue;
+  font-weight: bolder;
+      text-shadow: 5px 5px 3px darkgray;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin: 20px 0;
 `;
 const Label = styled.div`
   width:90%;
@@ -53,18 +57,21 @@ const Input = styled.input`
   outline: none;
   border: 1px solid #cfcfcf;
 `;
-const CreatAccount = styled.div`
+const CreateAccountButton = styled.div`
   width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px;
 `;
+
 const Button = styled.button`
-  background-color: #519e8a;
   color: white;
-  border: 2px solid #fff;
+  background: green;
+  border: 2px solid darkslategrey;
+  border-radius: 10px;
   width: 100%;
-  margin-top: 1em;
+  margin: 5px;
   padding: 5px 0px;
   font-size: 1em;
   font-weight: lighter;
@@ -72,19 +79,23 @@ const Button = styled.button`
   margin-bottom: 0.25em;
   cursor: pointer;
   &:hover {
-  color: #519e8a;
-  background-color: #fff;
-  border: 2px solid #519e8a;
+  color: white;
+  font-weight: bold;
+  background-color: seagreen;
   }
 `;
-// const Small = styled.div`
-//   color: blue;
-//   font-size: .87rem;
-//   font-weight: lighter;
-//   font-family: Oxygen, sans-serif;
-//   text-align: center;
-// `
 
+
+const CancelButton = styled(Button)`
+  background: lightpink;
+  border: 2px solid slategrey;
+  width: 80%;
+  margin: 0 auto;
+  &:hover {
+  font-weight: bold;
+  background-color: lightcoral;
+  }
+`;
 
 class SignUpForm extends Component {
   state = {
@@ -159,11 +170,22 @@ class SignUpForm extends Component {
                 onChange={this.handleChange}
               />
             </Label>
-            <CreatAccount>
+            <CreateAccountButton>
               <Button type="submit">Sign Up</Button>
-            </CreatAccount>
+            </CreateAccountButton>
+
+            <CancelButton
+              className = "cancelButton"
+              onClick = { () => this.props.history.push("/") }
+            >  Cancel !!! </CancelButton>
+
           </Form>
         </FormWrapper>
+
+
+
+
+
       </Wrapper>
     )
   }

@@ -36,7 +36,7 @@ li {
 
 a {
   text-decoration: none;
-  padding: 6px;
+  padding: 20px;
   color: #204963;
 }
 
@@ -293,7 +293,7 @@ input {
 
 .signUp-container {
   border: 1px solid deeppink;
-  width: 45%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
