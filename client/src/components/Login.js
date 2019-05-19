@@ -110,7 +110,6 @@ const mapStateToProps = state => {
 const mapStateToProps = ({ isLoggingIn, username }) => ({
   isLoggingIn,
   username,
-
 });
 
 

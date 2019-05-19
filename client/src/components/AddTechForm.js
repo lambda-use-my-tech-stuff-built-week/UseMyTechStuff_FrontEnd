@@ -6,21 +6,17 @@ import {connect} from 'react-redux';
 import {addTech, getTech, deleteTech} from '../actions';
 import { withRouter } from "react-router-dom";
 
-//import {} from './actions';
-
-///     dsfsdfsdfsd
+// https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg
 
 class AddTechForm extends Component {
   state = {
     name: '',
     user_id: localStorage.getItem("user_id"),
- //   user_id: 23,
     category: '',
     description: '',
     picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
     cost: '',
-  //  availability: true,
-  availability: false,
+    availability: true,
   };
 
   handleChange = e => {
@@ -36,12 +32,11 @@ class AddTechForm extends Component {
     // must fill in ALL fields !!!
     if(name && category && description && category && cost ) {
       this.props.addTech({name, user_id, category, picture, description, cost, availability});
-      // this.props.getTech();
       this.setState({
         name: '',
         category: '',
         description: '',
-        picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
+        picture: '',
         cost: '',
         availability: false,
       });
