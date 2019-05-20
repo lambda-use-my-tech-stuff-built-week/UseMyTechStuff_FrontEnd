@@ -92,26 +92,6 @@ class UserList extends Component {
       })
   }
 
-  /*
-  getRandomPic = () => {
-    return  'https://picsum.photos/100/100?random = 1';
-  };
-  */
-
-  getRandomPic = () => {
-
-    this.setState = ({
-      imgURL: 'https://picsum.photos/100/100'
-    });
-
-    return this.state.imgURL;
-
-  };
-
-
-
-
-
   render() {
     return (
       <div>
@@ -122,7 +102,7 @@ class UserList extends Component {
 
               <MDBCol>
                 <MDBCard style={{ width: "22rem" }}>
-                  <MDBCardImage className="img-fluid" src={`https://picsum.photos/200/300?random=${id}`} />
+                  <MDBCardImage style = {{padding: "20px"}} src={`https://picsum.photos/100/100?random=${id}`} alt = {"userIMG"} />
                   <MDBCardBody>
                     <MDBCardText>
                       <UserName>{users.username}</UserName>
@@ -134,8 +114,6 @@ class UserList extends Component {
 
 
             </div>
-
-
 
           ))}
         </UserWrapper>
