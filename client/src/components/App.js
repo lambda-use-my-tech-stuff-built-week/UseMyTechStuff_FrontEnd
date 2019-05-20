@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Login from "./Login";               // UNCOMMENTED
 import PrivateRoute from "./PrivateRoute"; // UNCOMMENTED
 
@@ -18,16 +18,16 @@ function App() {
       <div className="App">
         <ul>
           <li>
-            <Link to="/login">Login</Link>
+            <Link  to="/login" activeClassName="activeNavButton" >Login</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected" activeClassName="activeNavButton"  >Protected Page</Link>
           </li>
           <li>
-            <Link to="/signupform">Join Use My Tech Stuff !</Link>
+            <Link to="/signupform" activeClassName="activeNavButton"  >Join Use My Tech Stuff !</Link>
           </li>
           <li>
-            <Link to="/users">Techies</Link>
+            <Link to="/users" activeClassName="activeNavButton"  >Techies</Link>
           </li>
           <li>
             <Link to="/"

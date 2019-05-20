@@ -67,6 +67,11 @@ const UserCard = styled.div`
 
 class UserList extends Component {
 
+  state = {
+    users: [],
+    imgURL: 'https://picsum.photos/100/100',
+  };
+
   componentDidMount() {
     this.getUsers();
   }
@@ -87,13 +92,26 @@ class UserList extends Component {
       })
   }
 
+  /*
   getRandomPic = () => {
-    return  'https://picsum.photos/100/100';
+    return  'https://picsum.photos/100/100?random = 1';
+  };
+  */
+
+  getRandomPic = () => {
+
+    this.setState = ({
+      imgURL: 'https://picsum.photos/100/100'
+    });
+
+    return this.state.imgURL;
+
   };
 
-  state = {
-    users: [],
-  };
+
+
+
+
   render() {
     return (
       <div>
@@ -104,7 +122,7 @@ class UserList extends Component {
 
               <MDBCol>
                 <MDBCard style={{ width: "22rem" }}>
-                  <MDBCardImage className="img-fluid" src={this.getRandomPic()} waves />
+                  <MDBCardImage className="img-fluid" src={this.getRandomPic()} />
                   <MDBCardBody>
                     <MDBCardText>
                       <UserName>{users.username}</UserName>

@@ -24,6 +24,8 @@ const FormWrapper = styled.div`
   background-color: #ffffff;
     background: gainsboro;
 `;
+
+
 const Form = styled.form`
   width: 100%;
   display: flex;
