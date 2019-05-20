@@ -64,7 +64,7 @@ class Login extends React.Component {
 
         <HTwo>Access Use My Tech Stuff !</HTwo>
 
-        <form   className = "loginForm"  onSubmit={this.handleLogin}>
+        <LoginForm  onSubmit={this.handleLogin}>
 
           <LoginInfoContainer>
 
@@ -90,26 +90,25 @@ class Login extends React.Component {
               />
             </LoginInfo>
 
-            <button className = "loginButton">
+            <LoginButton>
               {this.props.isLoggingIn ?
                 <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
                 :
                 "Log in"
               }
-            </button>
+            </LoginButton>
 
           </LoginInfoContainer>
 
           <SignUpContainer>
             <HThree>New to Use My Tech Stuff ?</HThree>
-            <button
-              className = "signUpButton"
+            <SignUpButton
               onClick = { () => this.props.history.push("/signupform") }
-            >  Sign Up !!! </button>
+            >  Sign Up !!! </SignUpButton>
           </SignUpContainer>
 
 
-        </form>
+        </LoginForm>
 
       </LoginContainer>
     );

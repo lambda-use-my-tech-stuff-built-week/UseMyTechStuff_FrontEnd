@@ -18,7 +18,7 @@ const LoginContainer = styled.div`
   
 `;
 
-const LoginForm = styled.div`
+const LoginForm = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -60,7 +60,7 @@ const Input = styled.input`
 `;
 
 
-const LoginButton = styled.div`
+const LoginButton = styled.button`
   color: white;
   background: green;
   border: 2px solid darkslategrey;
@@ -91,13 +91,8 @@ const SignUpContainer = styled.div`
   margin: 35px;
 `;
 
-const SignUpTagLine = styled.div`
-  padding: 3px;
-  margin: 5px;
-  text-align: center;
-`;
 
-const SignUpButton = styled.div`
+const SignUpButton = styled.button`
   outline-style: none;
   border-radius: 5px;
   margin: 10px;
@@ -143,7 +138,6 @@ export {LoginContainer,
         LoginInfo,
         LoginButton,
         SignUpContainer,
-        SignUpTagLine,
         SignUpButton,
         Label,
         Input,
