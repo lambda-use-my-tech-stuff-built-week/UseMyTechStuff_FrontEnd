@@ -3,28 +3,7 @@ import { connect } from 'react-redux';
 import Loader from "react-loader-spinner";
 import { login } from '../actions';
 // import {Link} from "react-router-dom";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import styled from 'styled-components';
-
-
-import {
-  LoginContainer,
-  LoginForm,
-  LoginInfoContainer,
-  LoginInfo,
-  Label,
-  Input,
-
-  LoginButton,
-  SignUpContainer,
-  SignUpButton,
-  HTwo,
-  HThree,
-
-
-} from '../styled/LoginStyles';
-
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -63,56 +42,56 @@ class Login extends React.Component {
 
   render() {
     return (
-      <LoginContainer>
+      <div className = "login-container">
 
-        <HTwo>Access Use My Tech Stuff !</HTwo>
-        <LoginForm  onSubmit={this.handleLogin}>
+        <form   className = "loginForm"  onSubmit={this.handleLogin}>
 
-          <LoginInfoContainer>
+          <div className = "loginInfo-container">
 
-            <LoginInfo>
-              <Label htmlFor="username">Account</Label>
-              <Input
+            <div className = "loginInfo">
+              <label htmlFor="username">Account</label>
+              <input
                 type="text"
                 name="username"
                 placeholder="username"
                 value={this.state.credentials.username}
                 onChange={this.handleChange}
               />
-            </LoginInfo>
+            </div>
 
-            <LoginInfo>
-              <Label htmlFor="password">Password</Label>
-              <Input
+            <div className = "loginInfo">
+              <label htmlFor="password">Password</label>
+              <input
                 type="password"
                 name="password"
                 placeholder="********"
                 value={this.state.credentials.password}
                 onChange={this.handleChange}
               />
-            </LoginInfo>
+            </div>
 
-            <LoginButton>
+            <button className = "loginButton">
               {this.props.isLoggingIn ?
                 <Loader className="section" type="ThreeDots" color="blue" height="60" width="80" />
                 :
                 "Log in"
               }
-            </LoginButton>
+            </button>
 
-          </LoginInfoContainer>
+          </div>
 
-          <SignUpContainer>
-            <HThree>New to Use My Tech Stuff ?</HThree>
-            <SignUpButton
+          <div className = "signUp-container">
+            <h4 className = "signUpTagline">New to Use My Tech Stuff ?</h4>
+            <button
+              className = "signUpButton"
               onClick = { () => this.props.history.push("/signupform") }
-            >  Sign Up !!! </SignUpButton>
-          </SignUpContainer>
+            >  Sign Up !!! </button>
+          </div>
 
 
-        </LoginForm>
+        </form>
 
-      </LoginContainer>
+      </div>
     );
   }
 }
@@ -131,6 +110,7 @@ const mapStateToProps = state => {
 const mapStateToProps = ({ isLoggingIn, username }) => ({
   isLoggingIn,
   username,
+
 });
 
 

@@ -10,18 +10,8 @@
   align-content: center;
 }
 
+
 */
-
-/*
-font-family: 'Rubik', sans-serif;
-font-family: 'Dosis', sans-serif;
-font-family: 'Teko', sans-serif;
-y
-font-family: 'Bilbo', cursive;/*
-
-
- */
-
 
 .App {
   border: 4px solid purple;
@@ -46,7 +36,7 @@ li {
 
 a {
   text-decoration: none;
-  padding: 20px;
+  padding: 6px;
   color: #204963;
 }
 
@@ -190,7 +180,7 @@ h5, h6 {
 
 .img-container {
   border: 1px solid brown;
-/*  margin: 0 auto; */
+  /*  margin: 0 auto; */
   width: 100%;
 
 }
@@ -200,7 +190,7 @@ h5, h6 {
   width: 90%;
   padding: 10px;
   margin: 0 auto;
-/*  display: flex;  */
+  /*  display: flex;  */
 
 }
 
@@ -233,14 +223,48 @@ h5, h6 {
 }
 
 
-.loginInfo-container {
 
+
+
+
+
+.login-container{
+  border: 1px solid green;
+  width: 50%;
+  padding: 4px;
+  margin: 3px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loginForm {
+  border: 3px solid darkorchid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+.loginInfo-container {
+  border: 1px solid crimson;
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 35px;
 }
 
 
 
 .loginInfo {
-
+  border: 1px solid deeppink;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
 }
 
 label , input {
@@ -252,25 +276,49 @@ input {
 }
 
 .loginButton {
-
+  outline-style: none;
+  border-radius: 5px;
+  margin: 4px;
+  border: 1px solid seagreen;
+  background: #00C800;
+  width: 20%;
 }
 
 .loginButton:hover {
-
+  background: seagreen;
+  color: white;
+  font-weight: bold;
 }
 
 
 .signUp-container {
-
+  border: 1px solid deeppink;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 35px;
 }
 
 .signUpTagline {
-
+  border: 1px solid purple;
+  padding: 3px;
+  margin: 5px;
+  text-align: center;
 }
 
 .signUpButton {
-
+  outline-style: none;
+  border-radius: 5px;
+  margin: 10px;
+  border: 1px solid seagreen;
+  background: lightskyblue;
+  width: 40%;
 }
 .signUpButton:hover {
-
+  background: dodgerblue;
+  color: white;
+  font-weight: bold;
 }
