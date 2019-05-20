@@ -7,6 +7,18 @@ import ModalUpdateTech from './ModalUpdateTech';
 import ModalRentalRequest from './ModalRentalRequest';
 import ModalRentalRequest2 from './ModalRentalRequest2';
 
+import {
+  TechItemContainer,
+  ButtonsContainer,
+  ImageContainer,
+  ImageItem,
+  ItemH4,
+
+
+} from '../styled/TechItemStyles';
+
+
+
 class TechItem extends Component {
 
   handleDelete = (e, id) => {
@@ -22,10 +34,10 @@ class TechItem extends Component {
     const {techItem, id} = this.props;
 
     return (
-      <div className = "techItem-container"   key = {id}       >
+      <TechItemContainer   key = {id}       >
 
 
-        <div className = "buttons-container">
+        <ButtonsContainer>
           {Number(localStorage.getItem('user_id')) === techItem.user_id
             ? <button
               onClick =  { (e) => this.handleDelete(e, techItem.id)}
@@ -49,21 +61,22 @@ class TechItem extends Component {
               className = "ownerButton"> Update Item </ModalUpdateTech>
             : null
           }
-        </div>
+        </ButtonsContainer>
 
-        <div className = "img-container">
-          <img className = "img_item"
+        <ImageContainer>
+          <ImageItem
                src =  {techItem.picture} alt = "alt-img"
           />
-        </div>
-        <h3 className = "borderFormat"> Owner: {techItem.user} </h3>
+        </ImageContainer>
+
+        <ItemH4> Owner: {techItem.user} </ItemH4>
         <h4 className = "borderFormat" >ID: {techItem.user_id}</h4>
         <h4 className = "borderFormat"  > {techItem.name} </h4>
         <h4 className = "borderFormat" > Category: {techItem.category} </h4>
         <h4 className = "borderFormat"> Cost: ${techItem.cost} </h4>
         <h4 className = "borderFormat"> Availability: {techItem.availability.toString()} </h4>
         <h4 className = "borderFormat" style = {{fontSize: "12px"}}>  Description: {techItem.description} </h4>
-      </div>   // end of techItem-container
+      </TechItemContainer>   // end of techItem-container
 
     )
 

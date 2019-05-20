@@ -13,7 +13,8 @@ import TechItem from './TechItem';
 
 
 import {
-  TechItemListContainer
+  TechItemListContainer,
+  TechTitle,
 
 
 } from '../styled/TechItemStyles';
@@ -59,7 +60,7 @@ class TechItemlist extends Component {
         {this.props.techItems.fetchingData?
           <Loader className = "section" type="Rings" color="deeppink" height="260" width="280" />
           :
-          <h3 className = "techTitle"> TechItems for Rent !</h3>
+          <TechTitle> TechItems for Rent !</TechTitle>
         }
 
         {this.props.techItems.techItems.map( (techItem, id ) => (
