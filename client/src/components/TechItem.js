@@ -11,6 +11,7 @@ class TechItem extends Component {
    console.log(">>>>>>>>>>>>>>>>>>> deleting");
     e.preventDefault();
     this.props.deleteTech(id);
+
   };
 
 
