@@ -4,6 +4,8 @@ import './App.css';
 import {deleteTech} from "../actions";
 import {connect} from 'react-redux';
 import ModalUpdateTech from './ModalUpdateTech';
+import ModalRentalRequest from './ModalRentalRequest';
+import ModalRentalRequest2 from './ModalRentalRequest2';
 
 class TechItem extends Component {
 
@@ -36,12 +38,7 @@ class TechItem extends Component {
 
           {Number(localStorage.getItem('user_id')) !== techItem.user_id &&
           techItem.availability
-            ? <button
-              className = "renterButton"
-              onClick = {() => alert(`heyyyyy ${techItem.user}, I want to rent this !!!`)}
-            > Rent Item
-
-            </button>
+            ? <ModalRentalRequest2 techItem = {techItem}/>
             : null
           }
 

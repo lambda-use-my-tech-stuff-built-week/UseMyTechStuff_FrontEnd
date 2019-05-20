@@ -4,6 +4,29 @@ import Loader from "react-loader-spinner";
 import { login } from '../actions';
 // import {Link} from "react-router-dom";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styled from 'styled-components';
+
+
+import {
+  LoginContainer,
+
+} from '../styled/LoginStyles';
+
+/*
+const LoginContainer = styled.div`
+  border: 1px solid blue;
+  width: 50%;
+  padding: 4px;
+  margin: 3px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+
+`;
+*/
+
 
 class Login extends React.Component {
   state = {
@@ -42,7 +65,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className = "login-container">
+      <LoginContainer>
 
         <form   className = "loginForm"  onSubmit={this.handleLogin}>
 
@@ -91,7 +114,7 @@ class Login extends React.Component {
 
         </form>
 
-      </div>
+      </LoginContainer>
     );
   }
 }
