@@ -204,6 +204,7 @@ h5, h6 {
 .ownerButton {
   background: aliceblue;
   outline-style: none;
+  border-radius: 5px;
 }
 
 .renterButton {

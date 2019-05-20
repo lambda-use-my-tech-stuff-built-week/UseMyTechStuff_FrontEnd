@@ -13,6 +13,14 @@ import {
   ImageContainer,
   ImageItem,
   ItemH4,
+  ItemH5,
+  ItemDescription,
+  ItemAvailable,
+  ItemRented,
+
+
+
+
 
 
 } from '../styled/TechItemStyles';
@@ -44,8 +52,8 @@ class TechItem extends Component {
               className = "ownerButton"> Delete Item </button>
 
             : techItem.availability
-              ? <h3 className = "borderFormat avail"> Available </h3>
-              : <h3 className = "borderFormat rented"> Rented </h3>
+              ? <ItemAvailable> Available </ItemAvailable>
+              : <ItemRented> Rented </ItemRented>
           }
 
           {Number(localStorage.getItem('user_id')) !== techItem.user_id &&
@@ -70,12 +78,12 @@ class TechItem extends Component {
         </ImageContainer>
 
         <ItemH4> Owner: {techItem.user} </ItemH4>
-        <h4 className = "borderFormat" >ID: {techItem.user_id}</h4>
-        <h4 className = "borderFormat"  > {techItem.name} </h4>
-        <h4 className = "borderFormat" > Category: {techItem.category} </h4>
-        <h4 className = "borderFormat"> Cost: ${techItem.cost} </h4>
-        <h4 className = "borderFormat"> Availability: {techItem.availability.toString()} </h4>
-        <h4 className = "borderFormat" style = {{fontSize: "12px"}}>  Description: {techItem.description} </h4>
+        {/* <>       <h4 className = "borderFormat" >ID: {techItem.user_id}</h4>  </> */}
+        <ItemH5  > {techItem.name} </ItemH5>
+        <ItemH5> Category: {techItem.category} </ItemH5>
+        <ItemH5> Cost: ${techItem.cost} </ItemH5>
+        <ItemH5> Availability: {techItem.availability.toString()} </ItemH5>
+        <ItemDescription>  Description: {techItem.description} </ItemDescription>
       </TechItemContainer>   // end of techItem-container
 
     )

@@ -13,7 +13,7 @@ class AddTechForm extends Component {
     name: '',
     user_id: localStorage.getItem("user_id"),
     category: '',
-    description: '',
+    description: 'Minions ipsum uuuhhh tulaliloo gelatooo daa. Hahaha aaaaaah para tú la bodaaa gelatooo chasy po kass uuuhhh underweaaar poopayee poulet tikka masala.',
     picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
     cost: '',
     availability: true,
@@ -35,8 +35,8 @@ class AddTechForm extends Component {
       this.setState({
         name: '',
         category: '',
-        description: '',
-        picture: '',
+        description: 'Minions ipsum uuuhhh tulaliloo gelatooo daa. Hahaha aaaaaah para tú la bodaaa gelatooo chasy po kass uuuhhh underweaaar poopayee poulet tikka masala.',
+        picture: "https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg",
         cost: '',
         availability: false,
       });
