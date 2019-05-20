@@ -23,7 +23,7 @@ class ModalUpdateTech extends React.Component {
     this.setState({
 
         techItem: {
-          ...this.state.techItem,       // just added  TONIGHT
+         ...this.state.techItem,       // just added  TONIGHT
           [e.target.name]: e.target.value
         }
 
@@ -42,7 +42,8 @@ class ModalUpdateTech extends React.Component {
          description: description,
          cost: cost,
          availability: availability,
-         id: this.state.gud_id,
+ //        id: this.state.gud_id,
+        id: id,
          user_id: user_id,
        };
 
@@ -52,7 +53,9 @@ class ModalUpdateTech extends React.Component {
 
     console.log('>>>>>  $$$$$$   itemUpdated', itemUpdated);
 
-    this.props.updateTech(this.state.gud_id, itemUpdated);
+    this.props.updateTech(this.props.techItem.id, itemUpdated);
+
+//    this.props.updateTech(this.state.gud_id, itemUpdated);
     this.handleToggle();
   };
 
@@ -86,6 +89,7 @@ class ModalUpdateTech extends React.Component {
                 <div >
 
                   <h4> id: {this.state.gud_id} </h4>
+                  <h4> id prop: {this.props.techItem.id}  </h4>
 
                   <div >
                     <input
@@ -137,8 +141,10 @@ class ModalUpdateTech extends React.Component {
 
           </ModalBody>
 
+
+
           <ModalFooter>
-            <Button color="primary" onClick={ (e) => this.handleUpdate(e, id)  }> Update</Button>{' '}
+            <Button color="primary" onClick={ (e) => this.handleUpdate(e, this.props.techItem.id)  }> Update</Button>{' '}
             <Button color="secondary" onClick={this.handleToggle}>Cancel</Button>
           </ModalFooter>
 
@@ -149,7 +155,7 @@ class ModalUpdateTech extends React.Component {
   }
 }
 
-
+// <Button color="primary" onClick={ (e) => this.handleUpdate(e, id
 
 const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
  techItems,
