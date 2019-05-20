@@ -3,7 +3,25 @@ import { connect } from 'react-redux';
 import Loader from "react-loader-spinner";
 import { login } from '../actions';
 // import {Link} from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import {
+  LoginContainer,
+  LoginForm,
+  LoginInfoContainer,
+  LoginInfo,
+  Label,
+  Input,
+
+  LoginButton,
+  SignUpContainer,
+  SignUpButton,
+  HTwo,
+  HThree,
+
+
+} from '../styled/LoginStyles';
+
 
 class Login extends React.Component {
   state = {
@@ -42,33 +60,33 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className = "login-container">
+      <LoginContainer>
 
         <form   className = "loginForm"  onSubmit={this.handleLogin}>
 
-          <div className = "loginInfo-container">
+          <LoginInfoContainer>
 
-            <div className = "loginInfo">
-              <label htmlFor="username">Account</label>
-              <input
+            <LoginInfo>
+              <Label>Account</Label>
+              <Input
                 type="text"
                 name="username"
                 placeholder="username"
                 value={this.state.credentials.username}
                 onChange={this.handleChange}
               />
-            </div>
+            </LoginInfo>
 
-            <div className = "loginInfo">
-              <label htmlFor="password">Password</label>
-              <input
+            <LoginInfo>
+              <Label>Password</Label>
+              <Input
                 type="password"
                 name="password"
                 placeholder="********"
                 value={this.state.credentials.password}
                 onChange={this.handleChange}
               />
-            </div>
+            </LoginInfo>
 
             <button className = "loginButton">
               {this.props.isLoggingIn ?
@@ -78,20 +96,20 @@ class Login extends React.Component {
               }
             </button>
 
-          </div>
+          </LoginInfoContainer>
 
-          <div className = "signUp-container">
-            <h4 className = "signUpTagline">New to Use My Tech Stuff ?</h4>
+          <SignUpContainer>
+            <HThree>New to Use My Tech Stuff ?</HThree>
             <button
               className = "signUpButton"
               onClick = { () => this.props.history.push("/signupform") }
             >  Sign Up !!! </button>
-          </div>
+          </SignUpContainer>
 
 
         </form>
 
-      </div>
+      </LoginContainer>
     );
   }
 }
