@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+/*
+font-family: 'Lato', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Oxygen', sans-serif;
+font-family: 'Questrial', sans-serif;
+font-family: 'Spicy Rice', cursive;
+font-family: 'Lemon', cursive;
+
+*/
+
 const TechItemListContainer = styled.div`
   border: 5px solid blue;
   width: 75%;
@@ -72,10 +82,36 @@ const ImageItem = styled.img`
 `;
 
 const ItemH4 = styled.h4`
-  margin: 4px;
+  margin: 6px;
   display: flex;
+  font-family: 'Oxygen', sans-serif;
+`;
+
+const ItemH5 = styled.h5`
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin: .5rem;
+`;
+
+const ItemDescription = styled.p`
+  font-family: 'Oxygen', sans-serif;
+  margin: 10px;
+  padding: 0;
+`;
+
+const ItemStatus = styled(ItemH5)`
+   font-size: 1.5rem;
 
 `;
+
+const ItemAvailable = styled(ItemStatus)`
+  color: green;
+`;
+
+const ItemRented = styled(ItemStatus)`
+  color: dimgrey;
+`;
+
 
 export {
   TechItemListContainer,
@@ -85,6 +121,15 @@ export {
   ImageContainer,
   ImageItem,
   ItemH4,
+  ItemH5,
+  ItemDescription,
+  ItemAvailable,
+  ItemRented,
+
+
+
+
+
 
 
 
