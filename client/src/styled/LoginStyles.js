@@ -61,7 +61,7 @@ const Input = styled.input`
 
 
 const LoginButton = styled.div`
-   color: white;
+  color: white;
   background: green;
   border: 2px solid darkslategrey;
   border-radius: 10px;
@@ -92,7 +92,6 @@ const SignUpContainer = styled.div`
 `;
 
 const SignUpTagLine = styled.div`
-  border: 1px solid purple;
   padding: 3px;
   margin: 5px;
   text-align: center;
