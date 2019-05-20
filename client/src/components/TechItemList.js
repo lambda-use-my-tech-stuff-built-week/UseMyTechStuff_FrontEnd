@@ -12,6 +12,12 @@ import AddTechForm from './AddTechForm';
 import TechItem from './TechItem';
 
 
+import {
+  TechItemListContainer
+
+
+} from '../styled/TechItemStyles';
+
 class TechItemlist extends Component {
 
 
@@ -46,7 +52,7 @@ class TechItemlist extends Component {
     console.log("HEY");
 
     return (
-      <div className = "techItemsList-container">
+      <TechItemListContainer>
 
         <AddTechForm/>
 
@@ -65,7 +71,7 @@ class TechItemlist extends Component {
 
         ))}
 
-      </div>
+      </TechItemListContainer>
 
     )
   }

@@ -122,7 +122,7 @@ class UserList extends Component {
 
               <MDBCol>
                 <MDBCard style={{ width: "22rem" }}>
-                  <MDBCardImage className="img-fluid" src={this.getRandomPic()} />
+                  <MDBCardImage className="img-fluid" src={`https://picsum.photos/200/300?random=${id}`} />
                   <MDBCardBody>
                     <MDBCardText>
                       <UserName>{users.username}</UserName>
