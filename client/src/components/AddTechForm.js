@@ -6,6 +6,10 @@ import {connect} from 'react-redux';
 import {addTech, getTech, deleteTech} from '../actions';
 import { withRouter } from "react-router-dom";
 
+import { Label, Input } from 'reactstrap';
+
+
+
 // https://www.lightwave3d.com/static/media/uploads/news/louis-du-mont-tedstech/louis-du-mont-tedstech-banner.jpg
 
 class AddTechForm extends Component {
@@ -48,49 +52,62 @@ class AddTechForm extends Component {
   render() {
     return (
       <div className = "addTechItem-container">
+        <div className = "buttonContainer">
+          <button
+            className = "addTechItemButton"
+          >Add some "NEW" Tech !!!
+          </button>
+        </div>
+
+
         <form
           className = "addTechItemForm"
           onSubmit = {this.handleSubmit}
         >
 
-          <div className = "buttonContainer">
-            <button
-              className = "addTechItemButton"
-            >Add some "NEW" Tech !!!
-            </button>
-          </div>
 
-          <div className = "boxy">
+
+          <div className = "addItem-container">
 
             <div className = "techFormInputs">
-              <input
-                className= "addInputFieldName"
-                value = {this.state.name}
-                name = "name"
-                type = "text"
-                placeholder = "name"
-                onChange={this.handleChange}
-              />
-              <input
-                className= "addInputField"
-                value = {this.state.category}
-                name = "category"
-                type = "text"
-                placeholder = "category"
-                onChange={this.handleChange}
-              />
 
-              <input
-                className= "addInputField"
-                value = {this.state.cost}
-                name = "cost"
-                type = "text"
-                placeholder = "cost"
-                onChange={this.handleChange}
-              />
+              <Label> name
+                <Input
+                  className= "addInputFieldName"
+                  value = {this.state.name}
+                  name = "name"
+                  type = "text"
+                  placeholder = "name"
+                  onChange={this.handleChange}
+                />
+              </Label>
+
+              <Label> category
+                <Input
+                  className= "addInputField"
+                  value = {this.state.category}
+                  name = "category"
+                  type = "text"
+                  placeholder = "category"
+                  onChange={this.handleChange}
+                />
+              </Label>
+
+              <Label> cost
+                <Input
+                  className= "addInputField"
+                  value = {this.state.cost}
+                  name = "cost"
+                  type = "text"
+                  placeholder = "cost"
+                  onChange={this.handleChange}
+                />
+              </Label>
+
             </div>
 
-            <div className= "addTextAreaField" >
+
+            <div className= "addTextAreaField" >picture URL
               <textarea
                 value = {this.state.picture}
                 name = "picture"
@@ -99,7 +116,8 @@ class AddTechForm extends Component {
               />
             </div>
 
-            <div className = "addTextAreaField">
+
+            <div className = "addTextAreaField"> description
                <textarea
                  value = {this.state.description}
                   name = "description"

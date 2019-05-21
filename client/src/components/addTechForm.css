@@ -1,10 +1,11 @@
 .addTechItem-container {
-  border: 1px solid deeppink;
+  border: 3px solid dodgerblue;
+  border-radius: 15px;
   width: 80%;
   display: flex;
   margin: 10px 0;
   justify-content: center;
-
+  flex-direction: column;
 }
 
 .addTechItemForm {
@@ -17,11 +18,11 @@
 
 
 .buttonContainer {
-  border: 3px solid lightskyblue;
-  width: 25%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 4px;
 }
 
 .addTechItemButton {
@@ -35,32 +36,27 @@
   font-size: 14px;
   height: 50%;
 }
-.boxy{
-  border: 5px solid brown;
-  width: 70%;
+
+.addItem-container{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2px;
 }
 
-
-
 .techFormInputs {
-  border: 2px solid navy;
   display: flex;
   width: 90%;
   justify-content: space-evenly;
-  margin: 10px;
 }
 
 .addInputField {
-  border: 1px solid purple;
   display: flex;
-  width: 50%;
+  width: 100%;
 }
 
 .addInputFieldName {
-  border: 1px solid purple;
   display: flex;
   width: 100%;
 
@@ -68,13 +64,15 @@
 
 
 .addTextAreaField {
-  border: 1px solid green;
   display: flex;
   width: 90%;
-
+  margin: 2px;
+  padding: 10px;
+  flex-direction: column;
 }
 
 textarea{
   width: 100%;
-  margin: 5px;
+  margin: 15px;
+  padding: 10px;
 }
