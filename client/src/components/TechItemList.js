@@ -26,31 +26,8 @@ class TechItemlist extends Component {
     this.props.getTech();
   }
 
-  // handlers
-
-/*
-  handleDelete = (e, id) => {
-    console.log(">>>>>>>>>>>>>>>>>>> deleting");
-    e.preventDefault();
-    this.props.deleteTech(id);
-  };
-*/
-
-/*
-  handleUpdate  = (e, id, tech) => {
-
-    //   const {name, user_id, category, picture, description, cost, availability} = this.state;
-
-
-    e.preventDefault();
-    this.props.updateTech(id, tech);
-  };
-*/
-
 
   render() {
-
-    console.log("HEY");
 
     return (
       <TechItemListContainer>
@@ -77,28 +54,6 @@ class TechItemlist extends Component {
     )
   }
 }
-
-/*
-const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({
-  techItems,
-  fetchingData,
-//  deletingTech,
-//  updatingTech,
-//  addingTech,
-
-
-});
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {getTech}
-  )(TechItemlist2)
-);
-
-*/
-
-
 
 
 const mapStateToProps = ({techItems, fetchingData, deletingTech, updatingTech, addingTech}) => ({

@@ -11,7 +11,6 @@ font-family: 'Lemon', cursive;
 */
 
 const TechItemListContainer = styled.div`
-  border: 5px solid blue;
   width: 75%;
   background: ghostwhite;
   margin: 0 auto;
