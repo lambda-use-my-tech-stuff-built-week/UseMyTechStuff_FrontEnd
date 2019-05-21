@@ -12,6 +12,14 @@ import SignUpForm from './SignUpForm';
 import UserList from './UserList';
 import TechItemList from "./TechItemList";
 
+/*
+<li>
+            <Link to="/protected" activeClassName="activeNavButton"  >Protected Page</Link>
+          </li>
+
+ */
+
+
 function App() {
   return (
     <Router>
@@ -20,9 +28,7 @@ function App() {
           <li>
             <Link  to="/login" activeClassName="activeNavButton" >Login</Link>
           </li>
-          <li>
-            <Link to="/protected" activeClassName="activeNavButton"  >Protected Page</Link>
-          </li>
+
           <li>
             <Link to="/signupform" activeClassName="activeNavButton"  >Join Use My Tech Stuff !</Link>
           </li>
